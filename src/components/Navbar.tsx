@@ -109,9 +109,12 @@ const Navbar: React.FC = () => {
             <motion.div 
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="text-2xl font-bold dark:text-white"
+              className="text-2xl font-bold dark:text-white relative group"
             >
               MP<span className="text-primary">.</span>
+              <span className="absolute left-0 -bottom-8 bg-gray-800 text-white text-sm py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                Mustafa Pitolwala
+              </span>
             </motion.div>
           </Link>
           

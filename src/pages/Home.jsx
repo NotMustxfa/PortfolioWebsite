@@ -115,6 +115,7 @@ export default function Home() {
                 variants={heroTitleVariants}
                 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6 leading-tight"
               >
+                <span className="block text-4xl md:text-5xl lg:text-6xl mb-2">Mustafa Pitolwala</span>
                 I build <span className="text-primary">digital</span> experiences
               </motion.h1>
               
@@ -232,7 +233,7 @@ export default function Home() {
                   <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-5">
                     <Icon className="h-7 w-7 text-primary" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">{skill.name}</h3>
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3 text-center">{skill.name}</h3>
                   <p className="text-gray-600 dark:text-gray-300 text-center text-sm">{skill.description}</p>
                 </motion.div>
               );

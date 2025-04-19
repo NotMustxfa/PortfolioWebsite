@@ -120,11 +120,11 @@ export default function About() {
             </div>
             
             <h1 className="text-5xl font-bold text-gray-900 dark:text-white mb-8 leading-tight">
-              About <span className="text-primary">Me</span>
+              About <span className="text-primary ">Mustafa Pitolwala</span>
             </h1>
             
             <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-              I'm a passionate developer with a keen interest in creating digital experiences that solve real-world problems.
+              I'm Mustafa Pitolwala, a passionate developer with a keen interest in creating digital experiences that solve real-world problems.
             </p>
           </motion.div>
 
