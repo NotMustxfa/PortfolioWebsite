@@ -172,9 +172,12 @@ export default function Home() {
             >
               <div className="aspect-square max-w-md mx-auto relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full blur-xl"></div>
-                <div className="absolute inset-10 bg-white dark:bg-gray-800 rounded-full shadow-lg"></div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-7xl">👨‍💻</span>
+                <div className="absolute inset-10 bg-white dark:bg-gray-800 rounded-full shadow-lg overflow-hidden">
+                  <img 
+                    src="/projects/screenshots/profile.jpg" 
+                    alt="Mustafa Pitolwala" 
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
             </motion.div>
