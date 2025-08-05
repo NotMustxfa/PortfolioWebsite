@@ -9,7 +9,10 @@ import {
   AcademicCapIcon,
   SparklesIcon,
   ChartBarIcon,
-  LightBulbIcon
+  LightBulbIcon,
+  CpuChipIcon,
+  BuildingOfficeIcon,
+  UserGroupIcon
 } from '@heroicons/react/24/outline';
 import PageTransition from '../components/PageTransition';
 import { personalInfo } from '../data/personal';
@@ -22,28 +25,34 @@ const interests = [
     color: 'from-blue-500/20 to-blue-600/10'
   },
   { 
-    icon: DevicePhoneMobileIcon, 
-    title: 'Mobile App Development', 
-    description: 'Creating mobile applications using Flutter and Dart',
-    color: 'from-green-500/20 to-green-600/10'
-  },
-  { 
-    icon: RocketLaunchIcon, 
-    title: 'Game Development', 
-    description: 'Developing engaging games using C# and other game development technologies',
-    color: 'from-purple-500/20 to-purple-600/10'
-  },
-  { 
     icon: WrenchScrewdriverIcon, 
     title: 'Software Engineering', 
     description: 'Building robust and scalable software solutions',
     color: 'from-yellow-500/20 to-yellow-600/10'
   },
   { 
-    icon: CommandLineIcon, 
+    icon: UserGroupIcon, 
     title: 'Management', 
     description: 'Leading and managing software development projects',
     color: 'from-red-500/20 to-red-600/10'
+  },
+  {
+    icon: ChartBarIcon,
+    title: 'Data Analytics',
+    description: 'Analyzing and interpreting data to extract meaningful insights and patterns',
+    color: 'from-pink-500/20 to-pink-600/10'
+  },
+  {
+    icon: BuildingOfficeIcon,
+    title: 'Business Analytics',
+    description: 'Transforming data into actionable business insights and strategic recommendations',
+    color: 'from-indigo-500/20 to-indigo-600/10'
+  },
+  {
+    icon: CpuChipIcon,
+    title: 'Machine Learning',
+    description: 'Developing intelligent systems and algorithms to solve complex problems',
+    color: 'from-emerald-500/20 to-emerald-600/10'
   }
 ];
 
@@ -124,7 +133,7 @@ export default function About() {
             </h1>
             
             <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-              I'm Mustafa Pitolwala, a passionate developer with a keen interest in creating digital experiences that solve real-world problems.
+              I'm Mustafa Pitolwala, a passionate developer with a keen interest in creating digital experiences and transforming data into business insights that solve real-world problems.
             </p>
           </motion.div>
 
@@ -154,7 +163,7 @@ export default function About() {
                   
                   <div className="prose prose-lg dark:prose-invert max-w-none">
                     <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
-                      I am a motivated and detail-oriented BCA student at {personalInfo?.education?.institution || "a leading institution"} with a strong foundation in software development. I'm passionate about leveraging my technical expertise and problem-solving skills to develop innovative solutions.
+                      I am a motivated and detail-oriented BCA student at {personalInfo?.education?.institution || "a leading institution"} with a strong foundation in software development and data/business analytics. I'm passionate about leveraging my technical expertise, analytical mindset, and problem-solving skills to develop innovative solutions.
                     </p>
                     
                     <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
@@ -188,7 +197,7 @@ export default function About() {
                   
                   {/* Key skills visual display */}
                   <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 gap-4">
-                    {['JavaScript', 'React', 'Node.js', 'TypeScript', 'HTML/CSS', 'Git'].map((skill) => (
+                    {['JavaScript', 'React', 'Node.js', 'Python', 'SQL', 'Data Analytics', 'Business Analytics', 'Power BI', 'Tableau', 'Excel', 'Git'].map((skill) => (
                       <div 
                         key={skill}
                         className="bg-gray-50 dark:bg-gray-700/50 px-4 py-3 rounded-xl flex items-center gap-2 border border-gray-100 dark:border-gray-600"

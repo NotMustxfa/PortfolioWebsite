@@ -28,6 +28,23 @@ const experience = [
     technologies: ['Flutter', 'Dart', 'Firebase', 'REST APIs', 'Git'],
     color: 'from-blue-500/20 to-blue-600/10'
   },
+  {
+    title: 'Software Development Intern',
+    company: 'Travzi.com',
+    location: 'Dubai, U.A.E.',
+    duration: 'June 1, 2025 – June 30, 2025',
+    description: 'Contributed to the development and deployment of a website-integrated AI chatbot using Natural Language Learning (NLL) with Dialogflow. Designed conversation flows, trained the bot with tourism-related data, tested for accuracy, and delivered supporting documentation. Proactive, technically sound, and added value to the digital customer experience.',
+    responsibilities: [
+      'Developed and deployed a website-integrated AI chatbot using NLL with Dialogflow',
+      'Designed conversation flows for the chatbot',
+      'Trained the bot with tourism-related data',
+      'Tested the chatbot for accuracy',
+      'Delivered supporting documentation',
+      'Added value to the digital customer experience'
+    ],
+    technologies: ['Dialogflow', 'NLL', 'AI', 'JavaScript', 'Documentation'],
+    color: 'from-yellow-500/20 to-yellow-600/10'
+  },
 ];
 
 const containerVariants = {

@@ -14,7 +14,7 @@ export const personalInfo = {
     expectedGraduation: "2026"
   },
   skills: {
-    programming: ["Java", "Python", "HTML", "CSS", "JavaScript", "PHP", "C#", "Flutter", "Dart", "React.js", "Node.js", "TypeScript", "SQL"],
+    programming: ["Java", "Python", "HTML", "CSS", "JavaScript", "PHP", "C#", "Flutter", "Dart", "React.js", "Node.js", "TypeScript", "SQL", "Data Analytics", "Business Analytics"],
     databases: ["SQL"],
     cloudPlatforms: ["AWS", "Google Cloud", "Firebase"],
     softSkills: ["Problem-solving", "Teamwork", "Time Management"]
@@ -24,7 +24,9 @@ export const personalInfo = {
     "Mobile App Development",
     "Game Development",
     "Software Engineering",
-    "Management"
+    "Management",
+    "Data Analytics",
+    "Business Analytics"
   ],
   languages: ["English", "Hindi", "Gujarati"],
   certifications: [

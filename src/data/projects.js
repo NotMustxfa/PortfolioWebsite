@@ -1,5 +1,20 @@
 const projects = [
   {
+    id: 'wealthwise-allocator',
+    title: 'WealthWise Allocator',
+    description: 'A full-stack web app for NIFTY 50 stock analysis and portfolio optimization. Features real-time data, interactive charts, and Modern Portfolio Theory tools for smarter investment decisions.',
+    longDescription: `WealthWise Allocator empowers investors with advanced stock analysis and portfolio optimization for the NIFTY 50 index. Get real-time financial data, visualize historical trends, and use Modern Portfolio Theory (MPT) algorithms to optimize your portfolio for maximum returns or minimum risk. Built with React, FastAPI, and PyPortfolioOpt, it makes data-driven investing accessible and efficient.`,
+    technologies: ['React', 'Vite', 'Tailwind CSS', 'Chart.js', 'FastAPI', 'Python', 'yfinance', 'PyPortfolioOpt', 'Pandas', 'NumPy'],
+    image: '/projects/wealthwise-allocator.jpg',
+    screenshots: [
+      '/projects/screenshots/Screenshot 2025-07-24 152302.png', 
+      '/projects/screenshots/Screenshot 2025-07-24 152212.png',
+      '/projects/screenshots/Screenshot 2025-06-04 115657.png'
+    ],
+    github: 'https://github.com/NotMustxfa/WealthWiseAllocator',
+    featured: true
+  },
+  {
     id: 'student-services-portal',
     title: 'Student Services Portal',
     description: 'A web-based platform for assignment submission and lab-related communications.',
@@ -12,6 +27,7 @@ const projects = [
       '/projects/screenshots/student-portal-3.jpg'
     ],
     github: 'https://github.com/NotMustafa/student-services-portal',
+    featured: false
   },
   {
     id: 'college-fees-portal',
@@ -25,6 +41,7 @@ const projects = [
       '/projects/screenshots/fees-portal-2.jpg'
     ],
     github: 'https://github.com/NotMustafa/college-fees-portal',
+    featured: false
   },
   {
     id: 'ecommerce-website',
@@ -38,6 +55,7 @@ const projects = [
       '/projects/screenshots/Screenshot 2025-04-14 195559.png',
     ],
     github: 'https://github.com/NotMustxfa/E-Commerce-site',
+    featured: false
   },
   {
     id: 'profile-mapping-app',
@@ -54,6 +72,7 @@ const projects = [
       '/projects/screenshots/Screenshot 2025-04-14 195405.png'
     ],
     github: 'https://github.com/NotMustxfa/profile-map-app',
+    featured: false
   },
   {
     id: 'movie-browsing-website',
@@ -68,6 +87,7 @@ const projects = [
       '/projects/Screenshot 2025-04-14 175620.png'
     ],
     github: 'https://github.com/NotMustxfa/MovieBrowsingWebsite',
+    featured: false
   },
   {
     id: 'game-collection',
@@ -82,6 +102,7 @@ const projects = [
       '/projects/screenshots/games-3.jpg'
     ],
     github: 'https://github.com/NotMustxfa/Games-from-Csharp',
+    featured: false
   },
 ];
 

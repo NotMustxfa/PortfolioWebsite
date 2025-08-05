@@ -272,10 +272,10 @@ export default function Education() {
               
               <div className="md:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-4">
                 {[
-                  'Web Development Bootcamp',
-                  'Advanced React & Redux',
-                  'Flutter Development Masterclass',
-                  'Data Structures & Algorithms'
+                  'Data Analytics',
+                  'Business Analytics',
+                  'Machine Learning',
+                  'Management'
                 ].map((course, index) => (
                   <motion.div
                     key={course}

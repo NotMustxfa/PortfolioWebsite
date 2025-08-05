@@ -5,7 +5,8 @@ import {
   CommandLineIcon,
   CpuChipIcon,
   RocketLaunchIcon,
-  ArrowUpRightIcon
+  ArrowUpRightIcon,
+  ChartBarIcon
 } from '@heroicons/react/24/outline';
 import { Link } from 'react-router-dom';
 
@@ -58,11 +59,6 @@ const floatingCircleVariants = {
 // Skill cards data
 const skills = [
   { 
-    icon: CodeBracketIcon, 
-    name: 'Web Development',
-    description: 'Building modern, responsive web applications'
-  },
-  { 
     icon: CommandLineIcon, 
     name: 'Backend Development',
     description: 'Creating robust server-side applications and APIs'
@@ -76,6 +72,11 @@ const skills = [
     icon: RocketLaunchIcon, 
     name: 'Problem Solving',
     description: 'Innovative solutions for complex challenges'
+  },
+  {
+    icon: ChartBarIcon,
+    name: 'Data/Business Analytics',
+    description: 'Transforming data into actionable business insights'
   }
 ];
 
@@ -123,7 +124,7 @@ export default function Home() {
                 variants={fadeInUp}
                 className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed"
               >
-                Motivated and detail-oriented BCA student passionate about developing innovative tech solutions. Focused on creating seamless user experiences and robust applications.
+                Motivated and detail-oriented BCA student passionate about developing innovative tech solutions and data-driven insights. Focused on creating seamless user experiences, robust applications, and leveraging analytics for business growth.
               </motion.p>
               
               <motion.div 

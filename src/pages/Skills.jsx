@@ -9,6 +9,7 @@ import {
   DevicePhoneMobileIcon,
   CpuChipIcon,
   LightBulbIcon,
+  ChartBarIcon,
   SquaresPlusIcon
 } from '@heroicons/react/24/outline';
 import PageTransition from '../components/PageTransition';
@@ -22,13 +23,11 @@ const skills = {
     items: [
       { name: 'Java', level: 90 },
       { name: 'Python', level: 85 },
-      { name: 'HTML/CSS', level: 90 },
       { name: 'JavaScript', level: 85 },
       { name: 'PHP', level: 80 },
       { name: 'C#', level: 80 },
       { name: 'Flutter', level: 85 },
       { name: 'Dart', level: 85 },
-      { name: 'TypeScript', level: 80 },
       { name: 'SQL', level: 85 }
     ]
   },
@@ -39,8 +38,20 @@ const skills = {
     items: [
       { name: 'React', level: 90 },
       { name: 'Node.js', level: 85 },
-      { name: 'PHP', level: 80 },
-      { name: 'TypeScript', level: 80 }
+      { name: 'PHP', level: 80 }
+    ]
+  },
+  'Data/Business Analytics': {
+    icon: SquaresPlusIcon,
+    color: 'bg-pink-500',
+    gradient: 'from-pink-500 to-pink-600',
+    items: [
+      { name: 'Data Analytics', level: 80 },
+      { name: 'Business Analytics', level: 80 },
+      { name: 'Power BI', level: 75 },
+      { name: 'Tableau', level: 70 },
+      { name: 'Excel', level: 90 },
+      { name: 'SQL', level: 85 }
     ]
   },
   'Mobile Development': {
@@ -172,8 +183,8 @@ export default function Skills() {
   const topSkills = [
     { name: 'JavaScript', level: 85, icon: CodeBracketIcon },
     { name: 'React', level: 90, icon: SquaresPlusIcon },
-    { name: 'Node.js', level: 85, icon: ServerIcon },
-    { name: 'Flutter', level: 85, icon: DevicePhoneMobileIcon },
+    { name: 'SQL', level: 85, icon: ServerIcon },
+    { name: 'Data Analytics', level: 85, icon: ChartBarIcon },
     { name: 'Cloud Services', level: 75, icon: CloudIcon },
     { name: 'Problem-solving', level: 95, icon: LightBulbIcon },
   ];
@@ -300,8 +311,8 @@ export default function Skills() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
                 { name: 'Machine Learning', icon: CpuChipIcon },
-                { name: 'Blockchain', icon: CommandLineIcon },
-                { name: 'Serverless Architecture', icon: CloudIcon }
+                { name: 'Data/Business Analytics', icon: ChartBarIcon },
+                { name: 'Full Stack Development', icon: CodeBracketIcon }
               ].map((item, index) => {
                 const Icon = item.icon;
                 return (

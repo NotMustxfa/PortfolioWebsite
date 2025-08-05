@@ -155,6 +155,11 @@ const ProjectCard = ({ project, index }) => {
 };
 
 export default function Projects() {
+  // Separate featured and regular projects
+  const featuredProjects = projects.filter(p => p.featured);
+  const regularProjects = projects.filter(p => !p.featured);
+  const mainFeatured = featuredProjects[0];
+
   return (
     <PageTransition>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 relative">
@@ -199,14 +204,32 @@ export default function Projects() {
             />
           </div>
         </motion.div>
-        
+
+        {/* Featured Project Section */}
+        {mainFeatured && (
+          <div className="mb-16">
+            <h2 className="text-3xl font-bold text-primary mb-8">Featured Project</h2>
+            <div className="w-full mx-auto">
+              <ProjectCard project={mainFeatured} index={0} />
+            </div>
+          </div>
+        )}
+
+        {/* Visual Separator */}
+        <div className="my-12 flex items-center justify-center">
+          <div className="w-full max-w-2xl border-t-4 border-primary/40" />
+          <span className="mx-4 text-lg font-semibold text-primary/70">Other Projects</span>
+          <div className="w-full max-w-2xl border-t-4 border-primary/40" />
+        </div>
+
+        {/* All Other Projects Section */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 relative"
         >
-          {projects.map((project, index) => (
+          {regularProjects.concat(featuredProjects.slice(1)).map((project, index) => (
             <ProjectCard key={project.id} project={project} index={index} />
           ))}
         </motion.div>
