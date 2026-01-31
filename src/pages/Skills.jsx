@@ -16,72 +16,56 @@ import PageTransition from '../components/PageTransition';
 import { personalInfo } from '../data/personal';
 
 const skills = {
-  'Programming Languages': {
+  'Business & Analytical Skills': {
     icon: CodeBracketIcon,
-    color: 'bg-blue-500',
-    gradient: 'from-blue-500 to-blue-600',
+    color: 'bg-indigo-500',
+    gradient: 'from-indigo-500 to-indigo-600',
     items: [
-      { name: 'Java', level: 90 },
-      { name: 'Python', level: 85 },
-      { name: 'JavaScript', level: 85 },
-      { name: 'PHP', level: 80 },
-      { name: 'C#', level: 80 },
-      { name: 'Flutter', level: 85 },
-      { name: 'Dart', level: 85 },
-      { name: 'SQL', level: 85 }
+      { name: 'Business Analysis', level: 85 },
+      { name: 'Requirements Gathering', level: 85 },
+      { name: 'Process Improvement', level: 80 },
+      { name: 'Data Interpretation', level: 85 },
+      { name: 'Reporting & Analytics', level: 80 },
+      { name: 'Workflow Optimization', level: 80 }
     ]
   },
-  'Web Development': {
-    icon: ServerIcon,
-    color: 'bg-purple-500',
-    gradient: 'from-purple-500 to-purple-600',
+  'Product & UX Skills': {
+    icon: LightBulbIcon,
+    color: 'bg-yellow-500',
+    gradient: 'from-yellow-500 to-yellow-600',
     items: [
-      { name: 'React', level: 90 },
-      { name: 'Node.js', level: 85 },
-      { name: 'PHP', level: 80 }
+      { name: 'Product Thinking', level: 80 },
+      { name: 'User Flows & Journeys', level: 85 },
+      { name: 'Feature Planning', level: 80 },
+      { name: 'Prototyping & Wireframing', level: 75 },
+      { name: 'UI/UX Fundamentals', level: 85 }
     ]
   },
-  'Data/Business Analytics': {
+  'Analytics & Tools': {
     icon: SquaresPlusIcon,
     color: 'bg-pink-500',
     gradient: 'from-pink-500 to-pink-600',
     items: [
-      { name: 'Data Analytics', level: 80 },
-      { name: 'Business Analytics', level: 80 },
-      { name: 'Power BI', level: 75 },
-      { name: 'Tableau', level: 70 },
+      { name: 'Google Sheets', level: 90 },
       { name: 'Excel', level: 90 },
+      { name: 'Power BI', level: 75 },
+      { name: 'Google Workspace', level: 85 },
       { name: 'SQL', level: 85 }
     ]
   },
-  'Mobile Development': {
-    icon: DevicePhoneMobileIcon,
-    color: 'bg-green-500',
-    gradient: 'from-green-500 to-green-600',
+  'Technical Background': {
+    icon: ServerIcon,
+    color: 'bg-blue-500',
+    gradient: 'from-blue-500 to-blue-600',
     items: [
+      { name: 'JavaScript', level: 85 },
+      { name: 'Python', level: 85 },
+      { name: 'Java', level: 90 },
+      { name: 'React', level: 90 },
+      { name: 'Node.js', level: 85 },
       { name: 'Flutter', level: 85 },
-      { name: 'Dart', level: 85 }
-    ]
-  },
-  'Cloud & Databases': {
-    icon: CloudIcon,
-    color: 'bg-indigo-500',
-    gradient: 'from-indigo-500 to-indigo-600',
-    items: [
-      { name: 'AWS', level: 75 },
-      { name: 'Google Cloud', level: 75 },
-      { name: 'Firebase', level: 85 },
-      { name: 'SQL', level: 85 }
-    ]
-  },
-  'Soft Skills': {
-    icon: UserGroupIcon,
-    color: 'bg-yellow-500',
-    gradient: 'from-yellow-500 to-yellow-600',
-    items: [
-      { name: 'Problem-solving', level: 95 },
-      { name: 'Teamwork', level: 90 },
-      { name: 'Time Management', level: 85 }
+      { name: 'REST APIs', level: 85 },
+      { name: 'Git & GitHub', level: 85 }
     ]
   }
 };
@@ -225,11 +209,11 @@ export default function Skills() {
             </div>
             
             <h1 className="text-5xl font-bold text-gray-900 dark:text-white mb-8 leading-tight">
-              Technical <span className="text-primary">Skills</span>
+              Business & <span className="text-primary">Technical Skills</span>
             </h1>
             
             <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-              I have developed expertise in various technologies and methodologies, continuously expanding my skillset to deliver high-quality solutions.
+              I combine business analysis, product thinking, and data analytics with a strong technical foundation to drive data-driven decisions and create impactful solutions.
             </p>
           </motion.div>
 
@@ -303,16 +287,16 @@ export default function Skills() {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="mt-20 bg-gradient-to-br from-primary/10 to-primary/5 dark:from-primary/20 dark:to-primary/10 p-10 rounded-2xl shadow-soft border border-primary/10"
           >
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Continuous Learning</h2>
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Professional Growth</h2>
             <p className="text-gray-700 dark:text-gray-200 mb-6 leading-relaxed">
-              I am constantly expanding my knowledge and refining my abilities in the ever-evolving field of technology. Currently exploring:
+              I'm actively developing expertise in business analysis, product management, and data-driven decision making. Currently focusing on:
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
-                { name: 'Machine Learning', icon: CpuChipIcon },
-                { name: 'Data/Business Analytics', icon: ChartBarIcon },
-                { name: 'Full Stack Development', icon: CodeBracketIcon }
+                { name: 'Advanced Analytics', icon: ChartBarIcon },
+                { name: 'Product Management', icon: LightBulbIcon },
+                { name: 'Data Visualization', icon: SquaresPlusIcon }
               ].map((item, index) => {
                 const Icon = item.icon;
                 return (

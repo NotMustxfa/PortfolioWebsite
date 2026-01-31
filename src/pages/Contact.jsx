@@ -197,7 +197,7 @@ const SocialLinks = () => {
             className="mt-10 pt-6 border-t border-gray-100 dark:border-gray-700 text-center"
           >
             <p className="text-gray-500 dark:text-gray-400 text-sm">
-              Let's build something amazing together
+              Looking to collaborate on data-driven product or business problems? Let's connect
             </p>
           </motion.div>
         </div>
@@ -239,15 +239,15 @@ export default function Contact() {
           >
             <div className="flex items-center gap-2 mb-4">
               <SparklesIcon className="h-5 w-5 text-primary" />
-              <h2 className="text-primary font-medium">Get in touch</h2>
+              <h2 className="text-primary font-medium">Let's collaborate</h2>
             </div>
             
             <h1 className="text-5xl font-bold text-gray-900 dark:text-white mb-8 leading-tight">
-              Let's <span className="text-primary">Connect</span>
+              Get in <span className="text-primary">Touch</span>
             </h1>
             
             <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-              Have a question or want to work together? Feel free to reach out through any of the channels below.
+              Looking for a Business Analyst, Product-oriented professional, or Associate Product Manager? Let's discuss how I can drive data-driven solutions for your team.
             </p>
           </motion.div>
           

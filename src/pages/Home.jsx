@@ -60,23 +60,23 @@ const floatingCircleVariants = {
 const skills = [
   { 
     icon: CommandLineIcon, 
-    name: 'Backend Development',
-    description: 'Creating robust server-side applications and APIs'
+    name: 'Requirements Gathering',
+    description: 'Translating business needs into clear, actionable technical specifications'
   },
   { 
     icon: CpuChipIcon, 
-    name: 'Full Stack',
-    description: 'End-to-end solutions from database to user interface'
+    name: 'Product Thinking',
+    description: 'Understanding user needs and designing solutions with business impact'
   },
   { 
     icon: RocketLaunchIcon, 
-    name: 'Problem Solving',
-    description: 'Innovative solutions for complex challenges'
+    name: 'Process Improvement',
+    description: 'Optimizing workflows and automating operations for efficiency'
   },
   {
     icon: ChartBarIcon,
-    name: 'Data/Business Analytics',
-    description: 'Transforming data into actionable business insights'
+    name: 'Data-Driven Analytics',
+    description: 'Transforming data into insights that drive better business decisions'
   }
 ];
 
@@ -109,22 +109,22 @@ export default function Home() {
               className="lg:w-1/2 text-center lg:text-left"
             >
               <div className="inline-block px-4 py-1 bg-primary/10 rounded-full text-primary font-medium text-sm mb-6">
-                Full Stack Developer
+                Business & Product Analyst
               </div>
               
               <motion.h1 
                 variants={heroTitleVariants}
-                className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6 leading-tight"
+                className="text-3xl md:text-6xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6 leading-tight"
               >
-                <span className="block text-4xl md:text-5xl lg:text-6xl mb-2">Mustafa Pitolwala</span>
-                I build <span className="text-primary">digital</span> experiences
+                <span className="block text-3xl md:text-5xl lg:text-5xl mb-2">Mustafa Pitolwala</span>
+                I drive <span className="text-primary">business value</span> through data and product thinking
               </motion.h1>
               
               <motion.p 
                 variants={fadeInUp}
                 className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed"
               >
-                Motivated and detail-oriented BCA student passionate about developing innovative tech solutions and data-driven insights. Focused on creating seamless user experiences, robust applications, and leveraging analytics for business growth.
+                Business Analyst & Product-oriented professional with a strong technical foundation. I translate business requirements into data-driven solutions, optimize workflows, and bridge business and engineering teams. Skilled in requirements gathering, process improvement, analytics, and product thinking.
               </motion.p>
               
               <motion.div 
@@ -214,10 +214,10 @@ export default function Home() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              My <span className="text-primary">Expertise</span>
+              My <span className="text-primary">Core Strengths</span>
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              Here are some of the key areas where I excel and bring value to every project.
+              Here are the key areas where I create value: bridging business needs with technical solutions.
             </p>
           </motion.div>
           

@@ -19,40 +19,40 @@ import { personalInfo } from '../data/personal';
 
 const interests = [
   { 
-    icon: CodeBracketIcon, 
-    title: 'Full Stack Development', 
-    description: 'Building complete web applications with modern technologies like React, Node.js, and TypeScript',
-    color: 'from-blue-500/20 to-blue-600/10'
+    icon: ChartBarIcon,
+    title: 'Business Analytics', 
+    description: 'Transforming data into actionable business insights and strategic recommendations that drive growth',
+    color: 'from-indigo-500/20 to-indigo-600/10'
   },
   { 
-    icon: WrenchScrewdriverIcon, 
-    title: 'Software Engineering', 
-    description: 'Building robust and scalable software solutions',
+    icon: LightBulbIcon, 
+    title: 'Product Thinking', 
+    description: 'Understanding user needs, designing solutions with business impact, and solving real-world problems',
     color: 'from-yellow-500/20 to-yellow-600/10'
   },
   { 
     icon: UserGroupIcon, 
-    title: 'Management', 
-    description: 'Leading and managing software development projects',
+    title: 'Cross-functional Collaboration', 
+    description: 'Bridging business and engineering teams, translating requirements, and enabling better decisions',
     color: 'from-red-500/20 to-red-600/10'
   },
   {
-    icon: ChartBarIcon,
-    title: 'Data Analytics',
-    description: 'Analyzing and interpreting data to extract meaningful insights and patterns',
-    color: 'from-pink-500/20 to-pink-600/10'
-  },
-  {
-    icon: BuildingOfficeIcon,
-    title: 'Business Analytics',
-    description: 'Transforming data into actionable business insights and strategic recommendations',
-    color: 'from-indigo-500/20 to-indigo-600/10'
-  },
-  {
     icon: CpuChipIcon,
-    title: 'Machine Learning',
-    description: 'Developing intelligent systems and algorithms to solve complex problems',
+    title: 'Technical Foundation',
+    description: 'Strong software development background that enables deeper understanding of technical feasibility and system design',
     color: 'from-emerald-500/20 to-emerald-600/10'
+  },
+  {
+    icon: RocketLaunchIcon,
+    title: 'Process Optimization', 
+    description: 'Identifying bottlenecks, automating workflows, and improving operational efficiency',
+    color: 'from-blue-500/20 to-blue-600/10'
+  },
+  {
+    icon: WrenchScrewdriverIcon, 
+    title: 'Requirements & Analysis', 
+    description: 'Gathering requirements, documenting specifications, and translating business needs into actionable solutions',
+    color: 'from-pink-500/20 to-pink-600/10'
   }
 ];
 
@@ -125,7 +125,7 @@ export default function About() {
           >
             <div className="flex items-center gap-2 mb-4">
               <SparklesIcon className="h-5 w-5 text-primary" />
-              <h2 className="text-primary font-medium">Get to know me</h2>
+              <h2 className="text-primary font-medium">Professional Background</h2>
             </div>
             
             <h1 className="text-5xl font-bold text-gray-900 dark:text-white mb-8 leading-tight">
@@ -133,7 +133,7 @@ export default function About() {
             </h1>
             
             <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-              I'm Mustafa Pitolwala, a passionate developer with a keen interest in creating digital experiences and transforming data into business insights that solve real-world problems.
+              I'm Mustafa Pitolwala, a Business Analyst and Product-oriented professional with a strong technical foundation. I combine software development expertise with business acumen to solve complex problems and drive measurable business impact.
             </p>
           </motion.div>
 
@@ -157,17 +157,28 @@ export default function About() {
                       <UserIcon className="h-6 w-6 text-primary" />
                     </div>
                     <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-                      Who I Am
+                      My Journey
                     </h2>
                   </div>
                   
                   <div className="prose prose-lg dark:prose-invert max-w-none">
                     <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
-                      I am a motivated and detail-oriented BCA student at {personalInfo?.education?.institution || "a leading institution"} with a strong foundation in software development and data/business analytics. I'm passionate about leveraging my technical expertise, analytical mindset, and problem-solving skills to develop innovative solutions.
+                      I started my career as a software developer (BCA background), building web and mobile applications. Through this journey, I gained valuable hands-on experience understanding user needs, system design, and real-world product challenges. This technical foundation has become one of my greatest strengths.
                     </p>
                     
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                      When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, or engaging in continuous learning to stay at the cutting edge of software development.
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                      Over time, I transitioned toward business analysis and product-oriented work, where I discovered a genuine passion for solving business problems. My software development background enables me to:
+                    </p>
+
+                    <ul className="space-y-3 text-gray-600 dark:text-gray-300">
+                      <li className="flex gap-3"><span className="text-primary font-bold">•</span> <span>Understand systems, data architectures, and technical feasibility deeply</span></li>
+                      <li className="flex gap-3"><span className="text-primary font-bold">•</span> <span>Communicate clearly with engineering teams and translate business requirements</span></li>
+                      <li className="flex gap-3"><span className="text-primary font-bold">•</span> <span>Design solutions that are both business-valuable and technically sound</span></li>
+                      <li className="flex gap-3"><span className="text-primary font-bold">•</span> <span>Identify automation and optimization opportunities across workflows</span></li>
+                    </ul>
+                    
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed mt-6">
+                      Today, I position myself as a bridge between business and technology—someone who understands both worlds and uses that dual perspective to drive smarter, data-driven decisions.
                     </p>
                   </div>
                 </div>
@@ -185,13 +196,17 @@ export default function About() {
                       <CodeBracketIcon className="h-6 w-6 text-blue-500" />
                     </div>
                     <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-                      Technical Expertise
+                      Technical Foundation
                     </h2>
                   </div>
                   
                   <div className="prose prose-lg dark:prose-invert max-w-none">
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                      My technical background spans {personalInfo?.skills?.programming?.slice(0, 3).join(', ') || "Java, Python, JavaScript"} and modern frameworks like {personalInfo?.skills?.programming?.slice(8, 11).join(', ') || "React, Node.js, Flutter"}. I'm experienced with cloud platforms such as {personalInfo?.skills?.cloudPlatforms?.join(', ') || "AWS, Google Cloud"} and data tools including Excel, Power BI, and SQL.
+                    </p>
+
                     <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                      My technical toolkit includes a wide range of programming languages and technologies, from {personalInfo?.skills?.programming?.slice(0, 3).join(', ') || "JavaScript, TypeScript, React"} to modern frameworks like {personalInfo?.skills?.programming?.slice(8, 11).join(', ') || "Node.js, Express, MongoDB"}. I'm particularly experienced with cloud platforms such as {personalInfo?.skills?.cloudPlatforms?.join(', ') || "AWS, Google Cloud"}.
+                      This technical foundation enables me to bridge business and engineering perspectives, understand system constraints, and design solutions that are both impactful and feasible.
                     </p>
                   </div>
                   
@@ -230,16 +245,16 @@ export default function About() {
                   </h2>
                 </div>
                 <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
-                  I'm committed to continuous learning and professional growth, always seeking new challenges and opportunities to expand my skillset. My approach combines {personalInfo?.skills?.softSkills?.join(', ') || "problem-solving, creativity, attention to detail"} to deliver high-quality solutions.
+                  I combine analytical thinking with user-centric design to solve business problems. My approach emphasizes understanding the "why" before the "how"—uncovering root causes and designing solutions that create measurable business value. I'm committed to continuous learning and staying current with analytical tools and methodologies.
                 </p>
                 
                 {/* Visual representation of approach */}
                 <div className="space-y-4 mt-6">
                   {[
-                    { title: 'Problem Analysis', percentage: 95 },
-                    { title: 'Design & Planning', percentage: 90 },
-                    { title: 'Implementation', percentage: 85 },
-                    { title: 'Testing & QA', percentage: 80 }
+                    { title: 'Problem Discovery & Analysis', percentage: 95 },
+                    { title: 'Data-Driven Decision Making', percentage: 90 },
+                    { title: 'Solution Design & Planning', percentage: 85 },
+                    { title: 'Implementation & Optimization', percentage: 85 }
                   ].map((item) => (
                     <div key={item.title} className="space-y-2">
                       <div className="flex justify-between items-center">
@@ -268,17 +283,17 @@ export default function About() {
                     <AcademicCapIcon className="h-6 w-6 text-primary" />
                   </div>
                   <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-                    Current Focus
+                    Building for Impact
                   </h2>
                 </div>
                 <p className="text-gray-700 dark:text-gray-200 leading-relaxed">
-                  Currently pursuing my BCA at {personalInfo?.education?.institution || "a leading institution"}, expected to graduate in {personalInfo?.education?.expectedGraduation || "2024"}. Focusing on building real-world projects while maintaining a strong academic foundation.
+                  Currently pursuing my BCA at {personalInfo?.education?.institution || "a leading institution"}, expected to graduate in {personalInfo?.education?.expectedGraduation || "2026"}. I'm actively developing skills in business analysis, product thinking, and data analytics while maintaining a strong technical foundation.
                 </p>
                 
                 <div className="mt-6 pt-6 border-t border-primary/20">
                   <div className="flex items-center gap-2 text-primary font-medium">
                     <ChartBarIcon className="h-5 w-5" /> 
-                    <span>Currently working on portfolio projects</span>
+                    <span>Seeking opportunities in Business Analysis, Product Analytics, and Associate Product Management roles</span>
                   </div>
                 </div>
               </motion.div>

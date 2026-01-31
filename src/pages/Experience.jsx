@@ -14,36 +14,55 @@ import { Link } from 'react-router-dom';
 
 const experience = [
   {
-    title: 'Flutter Developer Intern',
-    company: 'Weboin',
-    location: 'Vadodara, Gujarat',
-    duration: 'Dec 2023 – Jan 2024',
-    description: 'Worked as a Flutter developer intern, contributing to real-world mobile application projects.',
+    title: 'Business Analyst Intern',
+    company: 'Acumen GATE Academy',
+    location: 'Remote',
+    duration: 'Aug 2024 – Present',
+    description: 'Led business analysis initiatives including requirements gathering, workflow optimization, and data-driven decision making. Created dashboards for student progress tracking and incentive management, implemented automation solutions, and experimented with AI tools for operational efficiency.',
     responsibilities: [
-      'Developed and maintained Flutter applications',
-      'Collaborated with the team on feature implementation',
-      'Worked with REST APIs and state management',
-      'Participated in code reviews and testing',
+      'Conducted requirements gathering with sales and academic teams to identify business needs',
+      'Designed and optimized workflows to improve operational efficiency',
+      'Created dashboards and reports for tracking student progress, incentives, and leads',
+      'Implemented WhatsApp workflow automation using Google Apps Script',
+      'Experimented with AI tools (Whisper AI) for transcription and operational insights',
+      'Translated business requirements into actionable solutions for cross-functional teams',
     ],
-    technologies: ['Flutter', 'Dart', 'Firebase', 'REST APIs', 'Git'],
-    color: 'from-blue-500/20 to-blue-600/10'
+    technologies: ['Business Analysis', 'Google Sheets', 'Excel', 'Google Apps Script', 'Whisper AI', 'Dashboard Design'],
+    color: 'from-indigo-500/20 to-indigo-600/10'
   },
   {
-    title: 'Software Development Intern',
-    company: 'Travzi.com',
+    title: 'Software Developer Intern',
+    company: 'Travzi World Travel & Tourism LLC',
     location: 'Dubai, U.A.E.',
-    duration: 'June 1, 2025 – June 30, 2025',
-    description: 'Contributed to the development and deployment of a website-integrated AI chatbot using Natural Language Learning (NLL) with Dialogflow. Designed conversation flows, trained the bot with tourism-related data, tested for accuracy, and delivered supporting documentation. Proactive, technically sound, and added value to the digital customer experience.',
+    duration: 'June 2025 – June 2025',
+    description: 'Contributed to product development by designing and implementing an AI chatbot solution. Focused on understanding product requirements, user flows, and business impact while gaining hands-on experience with APIs and customer-facing product improvements.',
     responsibilities: [
-      'Developed and deployed a website-integrated AI chatbot using NLL with Dialogflow',
-      'Designed conversation flows for the chatbot',
-      'Trained the bot with tourism-related data',
-      'Tested the chatbot for accuracy',
-      'Delivered supporting documentation',
-      'Added value to the digital customer experience'
+      'Collaborated with product and engineering teams on feature design and implementation',
+      'Designed conversation flows and user interactions for AI chatbot',
+      'Integrated and trained AI models with tourism-related data',
+      'Tested product features for user experience and accuracy',
+      'Documented technical solutions and product specifications',
+      'Contributed to improving digital customer experience through product thinking',
     ],
-    technologies: ['Dialogflow', 'NLL', 'AI', 'JavaScript', 'Documentation'],
-    color: 'from-yellow-500/20 to-yellow-600/10'
+    technologies: ['Dialogflow', 'AI/NLP', 'JavaScript', 'APIs', 'Product Design', 'Documentation'],
+    color: 'from-green-500/20 to-green-600/10'
+  },
+  {
+    title: 'Frontend Developer Intern',
+    company: 'Weboin Digital Marketing Agency',
+    location: 'Vadodara, Gujarat',
+    duration: 'Dec 2023 – Jan 2024',
+    description: 'Developed UI-focused features for client-facing applications. Collaborated with non-technical stakeholders, participated in requirement discussions, and improved user-facing experiences through clean, responsive design.',
+    responsibilities: [
+      'Developed responsive UI components for client-facing applications',
+      'Collaborated with designers and non-technical stakeholders on feature requirements',
+      'Participated in requirement discussions and user experience improvements',
+      'Implemented REST API integrations for dynamic content',
+      'Performed testing and quality assurance for client deliverables',
+      'Contributed to improving user experience through UI/UX enhancements',
+    ],
+    technologies: ['Flutter', 'Dart', 'REST APIs', 'Responsive Design', 'Firebase', 'Git'],
+    color: 'from-blue-500/20 to-blue-600/10'
   },
 ];
 

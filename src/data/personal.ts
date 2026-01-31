@@ -1,6 +1,6 @@
 export const personalInfo = {
   name: "Mustafa Pitolwala",
-  title: "BCA Student & Software Developer",
+  title: "Business & Product Analyst | Data-Driven Decision Maker",
   location: "Vadodra, Gujarat",
   email: "mustafa.s.pitolwala@gmail.com",
   phone: "+91 9427000327",
@@ -17,16 +17,15 @@ export const personalInfo = {
     programming: ["Java", "Python", "HTML", "CSS", "JavaScript", "PHP", "C#", "Flutter", "Dart", "React.js", "Node.js", "TypeScript", "SQL", "Data Analytics", "Business Analytics"],
     databases: ["SQL"],
     cloudPlatforms: ["AWS", "Google Cloud", "Firebase"],
-    softSkills: ["Problem-solving", "Teamwork", "Time Management"]
+    softSkills: ["Business Analysis", "Requirements Gathering", "Problem-solving", "Teamwork", "Time Management", "Product Thinking", "Data Analysis"]
   },
   interests: [
-    "Full Stack Development",
-    "Mobile App Development",
-    "Game Development",
-    "Software Engineering",
-    "Management",
-    "Data Analytics",
-    "Business Analytics"
+    "Business Analytics",
+    "Product Thinking",
+    "Data-Driven Decision Making",
+    "Cross-functional Collaboration",
+    "Process Optimization",
+    "Software Development"
   ],
   languages: ["English", "Hindi", "Gujarati"],
   certifications: [
