@@ -58,25 +58,25 @@ const floatingCircleVariants = {
 
 // Skill cards data
 const skills = [
-  { 
-    icon: CommandLineIcon, 
+  {
+    icon: CommandLineIcon,
     name: 'Requirements Gathering',
-    description: 'Translating business needs into clear, actionable technical specifications'
+    description: 'Conducting stakeholder interviews, mapping workflows, and translating business needs into clear technical specifications'
   },
-  { 
-    icon: CpuChipIcon, 
+  {
+    icon: CpuChipIcon,
     name: 'Product Thinking',
-    description: 'Understanding user needs and designing solutions with business impact'
+    description: 'Understanding user problems deeply, designing solutions with measurable business impact, and maintaining product vision'
   },
-  { 
-    icon: RocketLaunchIcon, 
-    name: 'Process Improvement',
-    description: 'Optimizing workflows and automating operations for efficiency'
+  {
+    icon: RocketLaunchIcon,
+    name: 'Systems Design',
+    description: 'Architecting end-to-end solutions that scale, building for reliability and user-centered experiences'
   },
   {
     icon: ChartBarIcon,
-    name: 'Data-Driven Analytics',
-    description: 'Transforming data into insights that drive better business decisions'
+    name: 'Data-Driven Decisions',
+    description: 'Transforming data into insights that drive product strategy, measure impact, and guide iteration'
   }
 ];
 
@@ -109,22 +109,22 @@ export default function Home() {
               className="lg:w-1/2 text-center lg:text-left"
             >
               <div className="inline-block px-4 py-1 bg-primary/10 rounded-full text-primary font-medium text-sm mb-6">
-                Business & Product Analyst
+                Product Manager & Systems Thinker
               </div>
-              
-              <motion.h1 
+
+              <motion.h1
                 variants={heroTitleVariants}
                 className="text-3xl md:text-6xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6 leading-tight"
               >
                 <span className="block text-3xl md:text-5xl lg:text-5xl mb-2">Mustafa Pitolwala</span>
-                I drive <span className="text-primary">business value</span> through data and product thinking
+                I design products that <span className="text-primary">solve real problems</span> and drive measurable impact
               </motion.h1>
-              
-              <motion.p 
+
+              <motion.p
                 variants={fadeInUp}
                 className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed"
               >
-                Business Analyst & Product-oriented professional with a strong technical foundation. I translate business requirements into data-driven solutions, optimize workflows, and bridge business and engineering teams. Skilled in requirements gathering, process improvement, analytics, and product thinking.
+                Product-focused professional with strong technical foundation. I bridge business strategy and technical execution by deeply understanding user problems, designing end-to-end solutions, and translating requirements into products that deliver real value. Experienced in building systems that serve hundreds of users, optimizing workflows, and making decisions driven by data and user feedback.
               </motion.p>
               
               <motion.div 

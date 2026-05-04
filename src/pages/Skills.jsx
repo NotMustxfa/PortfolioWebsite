@@ -16,29 +16,42 @@ import PageTransition from '../components/PageTransition';
 import { personalInfo } from '../data/personal';
 
 const skills = {
+  'Product Management Skills': {
+    icon: LightBulbIcon,
+    color: 'bg-purple-500',
+    gradient: 'from-purple-500 to-purple-600',
+    items: [
+      { name: 'Product Strategy & Vision', level: 85 },
+      { name: 'Requirements Gathering', level: 90 },
+      { name: 'Stakeholder Management', level: 85 },
+      { name: 'User-Centered Design', level: 85 },
+      { name: 'Systems Architecture', level: 80 },
+      { name: 'Data-Driven Decision Making', level: 85 }
+    ]
+  },
   'Business & Analytical Skills': {
     icon: CodeBracketIcon,
     color: 'bg-indigo-500',
     gradient: 'from-indigo-500 to-indigo-600',
     items: [
       { name: 'Business Analysis', level: 85 },
-      { name: 'Requirements Gathering', level: 85 },
       { name: 'Process Improvement', level: 80 },
       { name: 'Data Interpretation', level: 85 },
       { name: 'Reporting & Analytics', level: 80 },
-      { name: 'Workflow Optimization', level: 80 }
+      { name: 'Workflow Optimization', level: 80 },
+      { name: 'API Integration Strategy', level: 85 }
     ]
   },
   'Product & UX Skills': {
-    icon: LightBulbIcon,
+    icon: CodeBracketIcon,
     color: 'bg-yellow-500',
     gradient: 'from-yellow-500 to-yellow-600',
     items: [
-      { name: 'Product Thinking', level: 80 },
+      { name: 'Feature Planning & Prioritization', level: 85 },
       { name: 'User Flows & Journeys', level: 85 },
-      { name: 'Feature Planning', level: 80 },
-      { name: 'Prototyping & Wireframing', level: 75 },
-      { name: 'UI/UX Fundamentals', level: 85 }
+      { name: 'Wireframing & Prototyping', level: 80 },
+      { name: 'UI/UX Fundamentals', level: 85 },
+      { name: 'Product Metrics', level: 80 }
     ]
   },
   'Analytics & Tools': {
@@ -46,24 +59,22 @@ const skills = {
     color: 'bg-pink-500',
     gradient: 'from-pink-500 to-pink-600',
     items: [
-      { name: 'Google Sheets', level: 90 },
-      { name: 'Excel', level: 90 },
-      { name: 'Power BI', level: 75 },
-      { name: 'Google Workspace', level: 85 },
-      { name: 'SQL', level: 85 }
+      { name: 'Google Sheets', level: 95 },
+      { name: 'Excel & Advanced Formulas', level: 90 },
+      { name: 'Google Apps Script', level: 90 },
+      { name: 'SQL & Database Design', level: 85 },
+      { name: 'Power BI', level: 75 }
     ]
   },
-  'Technical Background': {
+  'Technical Foundation': {
     icon: ServerIcon,
     color: 'bg-blue-500',
     gradient: 'from-blue-500 to-blue-600',
     items: [
-      { name: 'JavaScript', level: 85 },
+      { name: 'JavaScript & TypeScript', level: 85 },
       { name: 'Python', level: 85 },
-      { name: 'Java', level: 90 },
       { name: 'React', level: 90 },
       { name: 'Node.js', level: 85 },
-      { name: 'Flutter', level: 85 },
       { name: 'REST APIs', level: 85 },
       { name: 'Git & GitHub', level: 85 }
     ]
@@ -165,12 +176,12 @@ const SkillCard = ({ name, Icon, level, index }) => {
 export default function Skills() {
   // Extract top skills for the highlight section
   const topSkills = [
-    { name: 'JavaScript', level: 85, icon: CodeBracketIcon },
-    { name: 'React', level: 90, icon: SquaresPlusIcon },
-    { name: 'SQL', level: 85, icon: ServerIcon },
+    { name: 'Requirements Gathering', level: 90, icon: CommandLineIcon },
+    { name: 'Product Strategy', level: 85, icon: LightBulbIcon },
+    { name: 'Stakeholder Management', level: 85, icon: UserGroupIcon },
     { name: 'Data Analytics', level: 85, icon: ChartBarIcon },
-    { name: 'Cloud Services', level: 75, icon: CloudIcon },
-    { name: 'Problem-solving', level: 95, icon: LightBulbIcon },
+    { name: 'Google Sheets & Apps Script', level: 95, icon: SquaresPlusIcon },
+    { name: 'Systems Design', level: 85, icon: ServerIcon },
   ];
 
   return (
@@ -209,11 +220,11 @@ export default function Skills() {
             </div>
             
             <h1 className="text-5xl font-bold text-gray-900 dark:text-white mb-8 leading-tight">
-              Business & <span className="text-primary">Technical Skills</span>
+              Product & <span className="text-primary">Technical Skills</span>
             </h1>
-            
+
             <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-              I combine business analysis, product thinking, and data analytics with a strong technical foundation to drive data-driven decisions and create impactful solutions.
+              I combine product management expertise, business analysis, and technical acumen to design and build solutions that solve real problems and drive measurable impact.
             </p>
           </motion.div>
 
@@ -287,16 +298,16 @@ export default function Skills() {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="mt-20 bg-gradient-to-br from-primary/10 to-primary/5 dark:from-primary/20 dark:to-primary/10 p-10 rounded-2xl shadow-soft border border-primary/10"
           >
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Professional Growth</h2>
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Product Management Expertise</h2>
             <p className="text-gray-700 dark:text-gray-200 mb-6 leading-relaxed">
-              I'm actively developing expertise in business analysis, product management, and data-driven decision making. Currently focusing on:
+              Through my internship at Acumen360, I developed comprehensive product management capabilities by designing and deploying 5 production systems. My expertise includes:
             </p>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
-                { name: 'Advanced Analytics', icon: ChartBarIcon },
-                { name: 'Product Management', icon: LightBulbIcon },
-                { name: 'Data Visualization', icon: SquaresPlusIcon }
+                { name: 'Requirements & Design', icon: ChartBarIcon },
+                { name: 'Stakeholder Management', icon: UserGroupIcon },
+                { name: 'User-Centered Solutions', icon: LightBulbIcon }
               ].map((item, index) => {
                 const Icon = item.icon;
                 return (

@@ -1,12 +1,12 @@
 export const personalInfo = {
   name: "Mustafa Pitolwala",
-  title: "Business & Product Analyst | Data-Driven Decision Maker",
+  title: "Product Manager | Systems Thinker | Business & Technical Bridge",
   location: "Vadodra, Gujarat",
   email: "mustafa.s.pitolwala@gmail.com",
   phone: "+91 9427000327",
   links: {
-    linkedin: "https://www.linkedin.com/in/mustafa-pitolwala-687297262/",
-    github: "https://github.com/NotMustafa"
+    linkedin: "https://www.linkedin.com/in/mustafa-pitolwala-6872472b2/",
+    github: "https://github.com/NotMustxfa"
   },
   education: {
     degree: "Bachelor of Computer Applications (BCA)",
@@ -14,18 +14,19 @@ export const personalInfo = {
     expectedGraduation: "2026"
   },
   skills: {
-    programming: ["Java", "Python", "HTML", "CSS", "JavaScript", "PHP", "C#", "Flutter", "Dart", "React.js", "Node.js", "TypeScript", "SQL", "Data Analytics", "Business Analytics"],
-    databases: ["SQL"],
-    cloudPlatforms: ["AWS", "Google Cloud", "Firebase"],
-    softSkills: ["Business Analysis", "Requirements Gathering", "Problem-solving", "Teamwork", "Time Management", "Product Thinking", "Data Analysis"]
+    programming: ["JavaScript", "TypeScript", "Python", "React.js", "Node.js", "Google Apps Script", "HTML", "CSS", "Java", "SQL"],
+    productManagement: ["Requirements Gathering", "Product Strategy", "Stakeholder Management", "Systems Design", "User-Centered Design", "Data-Driven Decision Making"],
+    databases: ["Google Sheets", "SQL", "Database Design"],
+    tools: ["Google Apps Script", "Google Sheets", "Excel", "Power BI", "Pabbly Connect", "GitHub"],
+    softSkills: ["Product Thinking", "Business Analysis", "Problem-solving", "Communication", "Cross-functional Leadership", "Attention to Detail"]
   },
   interests: [
+    "Product Management",
     "Business Analytics",
-    "Product Thinking",
+    "Systems Architecture",
+    "User Experience",
     "Data-Driven Decision Making",
-    "Cross-functional Collaboration",
-    "Process Optimization",
-    "Software Development"
+    "Process Automation"
   ],
   languages: ["English", "Hindi", "Gujarati"],
   certifications: [

@@ -133,7 +133,7 @@ export default function About() {
             </h1>
             
             <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-              I'm Mustafa Pitolwala, a Business Analyst and Product-oriented professional with a strong technical foundation. I combine software development expertise with business acumen to solve complex problems and drive measurable business impact.
+              I'm Mustafa Pitolwala, a Product-focused professional with a strong technical foundation. I combine software development expertise with business acumen to design end-to-end solutions that solve real problems and drive measurable impact. My dual perspective—understanding both engineering and business—enables me to bridge teams and make informed, data-driven decisions.
             </p>
           </motion.div>
 
@@ -287,13 +287,13 @@ export default function About() {
                   </h2>
                 </div>
                 <p className="text-gray-700 dark:text-gray-200 leading-relaxed">
-                  Currently pursuing my BCA at {personalInfo?.education?.institution || "a leading institution"}, expected to graduate in {personalInfo?.education?.expectedGraduation || "2026"}. I'm actively developing skills in business analysis, product thinking, and data analytics while maintaining a strong technical foundation.
+                  Currently pursuing my BCA at {personalInfo?.education?.institution || "a leading institution"}, expected to graduate in {personalInfo?.education?.expectedGraduation || "2026"}. Through my internship experience, I've developed strong product thinking capabilities, requirements gathering skills, and systems architecture expertise. I'm actively building my portfolio with real-world product projects.
                 </p>
-                
+
                 <div className="mt-6 pt-6 border-t border-primary/20">
                   <div className="flex items-center gap-2 text-primary font-medium">
-                    <ChartBarIcon className="h-5 w-5" /> 
-                    <span>Seeking opportunities in Business Analysis, Product Analytics, and Associate Product Management roles</span>
+                    <ChartBarIcon className="h-5 w-5" />
+                    <span>Pursuing a career in Product Management with strong technical foundation</span>
                   </div>
                 </div>
               </motion.div>

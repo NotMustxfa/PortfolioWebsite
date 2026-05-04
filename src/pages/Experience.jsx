@@ -14,20 +14,39 @@ import { Link } from 'react-router-dom';
 
 const experience = [
   {
-    title: 'Business Analyst Intern',
-    company: 'Acumen GATE Academy',
-    location: 'Remote',
-    duration: 'Aug 2024 – Present',
-    description: 'Led business analysis initiatives including requirements gathering, workflow optimization, and data-driven decision making. Created dashboards for student progress tracking and incentive management, implemented automation solutions, and experimented with AI tools for operational efficiency.',
+    title: 'Product Development Intern',
+    company: 'Acumen360 / Acumen GATE Academy',
+    location: 'Vadodara, India',
+    duration: 'Jan 2026 – May 2026',
+    description: 'Designed and deployed 5 production systems serving 300+ users in a live educational organization. Developed end-to-end product solutions from requirements gathering through testing and deployment, focusing on user-centered design and operational impact. Demonstrated core product management competencies: requirements gathering, stakeholder management, systems thinking, and data-driven decision making.',
     responsibilities: [
-      'Conducted requirements gathering with sales and academic teams to identify business needs',
-      'Designed and optimized workflows to improve operational efficiency',
-      'Created dashboards and reports for tracking student progress, incentives, and leads',
-      'Implemented WhatsApp workflow automation using Google Apps Script',
-      'Experimented with AI tools (Whisper AI) for transcription and operational insights',
-      'Translated business requirements into actionable solutions for cross-functional teams',
+      'Conducted in-depth requirements gathering and workflow mapping with 3 stakeholder groups (sales, academic, operations)',
+      'Designed 5 complete product systems addressing distinct operational problems across the organization',
+      'Implemented automated workflows serving 300+ students and 25+ staff members with zero data integrity failures',
+      'Built WhatsApp CRM automation system processing 500+ messages weekly, improving response time by 90%',
+      'Engineered QR-based attendance tracking system with concurrent-safe architecture for 200+ students',
+      'Deployed AI-powered sales intelligence pipeline analyzing 100+ call recordings with GPT-4 structured analysis',
+      'Created end-to-end fee management system automating 3-phase student lifecycle with 99% accuracy',
+      'Delivered production-grade systems with comprehensive testing, documentation, and deployment checklists',
     ],
-    technologies: ['Business Analysis', 'Google Sheets', 'Excel', 'Google Apps Script', 'Whisper AI', 'Dashboard Design'],
+    technologies: ['Google Apps Script', 'Google Sheets', 'Meta WhatsApp Cloud API', 'OpenAI GPT-4/Whisper', 'Pabbly Connect', 'JavaScript', 'Product Strategy', 'Requirements Analysis', 'Systems Design', 'User-Centered Design'],
+    color: 'from-purple-500/20 to-purple-600/10'
+  },
+  {
+    title: 'Business Operations Intern',
+    company: 'Acumen360 / Acumen GATE Academy',
+    location: 'Vadodara, India',
+    duration: 'Aug 2024 – Dec 2025',
+    description: 'Conducted business analysis initiatives and process optimization across operational, academic, and sales functions. Created data-driven dashboards and implemented automation solutions, building foundational product thinking and stakeholder management skills.',
+    responsibilities: [
+      'Identified inefficiencies through process mapping and stakeholder interviews',
+      'Designed dashboards for student progress tracking, lead management, and operational metrics',
+      'Implemented Google Sheets automation for workflow optimization',
+      'Collaborated with cross-functional teams to understand business requirements and pain points',
+      'Analyzed operational data to identify improvement opportunities and cost savings',
+      'Documented findings and recommendations for process improvements',
+    ],
+    technologies: ['Business Analysis', 'Google Sheets', 'Excel', 'Data Analysis', 'Dashboard Design', 'Process Mapping'],
     color: 'from-indigo-500/20 to-indigo-600/10'
   },
   {
