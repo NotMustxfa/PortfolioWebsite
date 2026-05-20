@@ -1,16 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { useTheme } from '../context/ThemeContext';
-
-interface Particle {
-  id: number;
-  x: number;
-  y: number;
-  size: number;
-  opacity: number;
-  vx: number;
-  vy: number;
-}
 
 export const AnimatedHero: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
   const { config, mode } = useTheme();
