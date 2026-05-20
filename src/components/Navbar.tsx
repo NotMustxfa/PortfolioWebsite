@@ -1,34 +1,29 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { 
   Bars3Icon, 
   XMarkIcon,
-  HomeIcon,
   UserIcon,
-  AcademicCapIcon,
   CodeBracketIcon,
   FolderIcon,
-  BriefcaseIcon,
-  DocumentCheckIcon,
-  EnvelopeIcon
+  EnvelopeIcon,
 } from '@heroicons/react/24/outline';
+import ThemeToggle from './ThemeToggle';
+import { useTheme } from '../context/ThemeContext';
+
+// ===== SIMPLIFIED NAVBAR - SCROLL-BASED NAVIGATION =====
 
 interface NavigationItem {
   name: string;
-  href: string;
+  id: string;
   icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
 }
 
 const navigation: NavigationItem[] = [
-  { name: 'Home', href: '/', icon: HomeIcon },
-  { name: 'About', href: '/about', icon: UserIcon },
-  { name: 'Education', href: '/education', icon: AcademicCapIcon },
-  { name: 'Skills', href: '/skills', icon: CodeBracketIcon },
-  { name: 'Projects', href: '/projects', icon: FolderIcon },
-  { name: 'Experience', href: '/experience', icon: BriefcaseIcon },
-  { name: 'Certifications', href: '/certifications', icon: DocumentCheckIcon },
-  { name: 'Contact', href: '/contact', icon: EnvelopeIcon },
+  { name: 'About', id: 'about', icon: UserIcon },
+  { name: 'Skills', id: 'skills', icon: CodeBracketIcon },
+  { name: 'Projects', id: 'projects', icon: FolderIcon },
+  { name: 'Contact', id: 'contact', icon: EnvelopeIcon },
 ];
 
 // Custom button animation variants
@@ -73,56 +68,104 @@ const mobileMenuVariants = {
   }
 };
 
+// Scroll-to-section function
+const scrollToSection = (sectionId: string) => {
+  const refs = (window as any).scrollRefs;
+  if (refs && refs[sectionId] && refs[sectionId].current) {
+    refs[sectionId].current.scrollIntoView({ behavior: 'smooth' });
+  }
+};
+
 const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
   const [scrolled, setScrolled] = useState<boolean>(false);
-  const location = useLocation();
+  const { mode, config } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
 
-    // Force dark mode
-    document.documentElement.classList.add('dark');
-    localStorage.setItem('darkMode', 'true');
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    // Close mobile menu when route changes
-    setMobileMenuOpen(false);
-  }, [location.pathname]);
-
   return (
-    <header className={`fixed w-full z-50 transition-all duration-300 ${
-      scrolled 
-        ? 'dark:bg-dark/95 backdrop-blur-md shadow-soft py-2' 
-        : 'dark:bg-dark/90 backdrop-blur-sm py-4'
-    }`}>
+    <header 
+      className="fixed w-full z-50 transition-all"
+      style={{
+        backgroundColor: scrolled ? `${config.bg}F2` : `${config.bg}CC`,
+        backdropFilter: mode === 'creative' ? 'blur(20px)' : 'blur(12px)',
+        borderBottomColor: config.primary,
+        borderBottomWidth: config.borderWidth,
+        transitionDuration: config.transitionDuration
+      }}
+    >
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8" aria-label="Top">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Link to="/" className="flex items-center">
-            <motion.div 
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="text-2xl font-bold dark:text-white relative group"
+        <div 
+          className="flex items-center justify-between transition-all"
+          style={{
+            paddingTop: config.spacing.sm,
+            paddingBottom: config.spacing.sm
+          }}
+        >
+          {/* Logo - Links to top */}
+          <motion.button
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="flex items-center relative group transition-all cursor-pointer"
+            style={{
+              fontSize: config.fontSize['3xl'],
+              fontFamily: config.headingFamily,
+              fontWeight: '700',
+              color: config.text,
+              background: 'none',
+              border: 'none',
+              padding: 0
+            }}
+          >
+            M
+            <span style={{ color: config.primary }}>P</span>
+            <span style={{ color: config.textSecondary }}>.</span>
+            
+            {/* Tooltip */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileHover={{ opacity: 1, y: 0 }}
+              style={{
+                position: 'absolute',
+                left: 0,
+                top: '100%',
+                backgroundColor: config.bg,
+                borderColor: config.primary,
+                borderWidth: config.borderWidth,
+                color: config.primary,
+                fontSize: config.fontSize.sm,
+                padding: `${config.spacing.sm} ${config.spacing.md}`,
+                borderRadius: config.borderRadius,
+                opacity: 0,
+                pointerEvents: 'none',
+                marginTop: config.spacing.md,
+                whiteSpace: 'nowrap',
+                fontFamily: config.fontFamily,
+                letterSpacing: mode === 'creative' ? '0.05em' : '0em'
+              }}
+              className="group-hover:opacity-100 transition-opacity"
             >
-              MP<span className="text-primary">.</span>
-              <span className="absolute left-0 -bottom-8 bg-gray-800 text-white text-sm py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
-                Mustafa Pitolwala
-              </span>
+              Mustafa Pitolwala
             </motion.div>
-          </Link>
-          
+          </motion.button>
+
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1">
+          <div 
+            className="hidden md:flex items-center transition-all"
+            style={{
+              gap: mode === 'creative' ? '0.25rem' : '0.5rem'
+            }}
+          >
             {navigation.map((item, i) => {
               const Icon = item.icon;
-              const isActive = location.pathname === item.href;
               return (
                 <motion.div
                   key={item.name}
@@ -132,37 +175,71 @@ const Navbar: React.FC = () => {
                   animate="open"
                   whileHover="hover"
                 >
-                  <Link
-                    to={item.href}
-                    className={`${
-                      isActive
-                        ? 'text-primary bg-primary/10'
-                        : 'dark:text-gray-300 hover:text-primary dark:hover:text-primary hover:bg-primary/5'
-                    } px-4 py-2 rounded-lg text-base font-medium relative group flex items-center gap-2 transition-all duration-200`}
+                  <motion.button
+                    onClick={() => {
+                      scrollToSection(item.id);
+                      setMobileMenuOpen(false);
+                    }}
+                    className="transition-all group relative flex items-center gap-1 rounded-none whitespace-nowrap cursor-pointer"
+                    style={{
+                      padding: `0.375rem 0.75rem`,
+                      fontSize: config.fontSize.sm,
+                      fontFamily: config.fontFamily,
+                      fontWeight: mode === 'professional' ? '500' : '700',
+                      color: config.text,
+                      letterSpacing: mode === 'creative' ? '0.05em' : '0em',
+                      transitionDuration: config.transitionDuration,
+                      background: 'none',
+                      border: 'none',
+                      cursor: 'pointer',
+                      position: 'relative'
+                    }}
+                    whileHover={{ color: config.primary, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
                   >
-                    <Icon className={`h-5 w-5 transition-transform duration-200 ${isActive ? 'scale-110' : 'group-hover:scale-110'}`} />
-                    {item.name}
-                    {isActive && (
-                      <motion.div
-                        className="absolute bottom-0 left-0 h-0.5 w-full bg-primary"
-                        layoutId="navbar-underline"
-                      />
-                    )}
-                  </Link>
+                    <Icon className="h-5 w-5 transition-all" />
+                    <span className="hidden lg:inline">{item.name}</span>
+                    
+                    {/* Underline reveal effect */}
+                    <motion.div
+                      className="absolute bottom-0 left-0 h-0.5 group-hover:w-full transition-all"
+                      initial={{ width: 0 }}
+                      whileHover={{ width: '100%' }}
+                      style={{
+                        background: config.primary,
+                        transformOrigin: 'left',
+                      }}
+                      transition={{ duration: 0.3, ease: 'easeOut' }}
+                    />
+                  </motion.button>
                 </motion.div>
               );
             })}
           </div>
-          
-          {/* Mobile menu button */}
-          <div className="flex items-center md:hidden">            
+
+          {/* Theme Toggle & Mobile menu button */}
+          <div 
+            className="flex items-center transition-all"
+            style={{
+              gap: config.spacing.md
+            }}
+          >
+            <ThemeToggle />
             <motion.button
               variants={buttonVariants}
               initial="rest"
               whileHover="hover"
               whileTap="tap"
               type="button"
-              className="dark:text-gray-300 p-2 rounded-lg dark:bg-gray-800 transition-colors"
+              className="md:hidden rounded-none transition-all cursor-pointer"
+              style={{
+                padding: config.spacing.sm,
+                borderWidth: config.borderWidth,
+                borderColor: 'transparent',
+                color: config.text,
+                background: 'none',
+                border: 'none'
+              }}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               <span className="sr-only">Open main menu</span>
@@ -177,45 +254,63 @@ const Navbar: React.FC = () => {
       </nav>
 
       {/* Mobile menu */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            className="md:hidden overflow-hidden"
-            variants={mobileMenuVariants}
-            initial="closed"
-            animate="open"
-            exit="closed"
+      {mobileMenuOpen && (
+        <motion.div
+          className="overflow-hidden md:hidden"
+          variants={mobileMenuVariants}
+          initial="closed"
+          animate="open"
+          exit="closed"
+        >
+          <div 
+            className="space-y-1 mx-2 mt-2 rounded-none transition-all"
+            style={{
+              backgroundColor: config.bg,
+              borderWidth: config.borderWidth,
+              borderColor: config.primary,
+              padding: config.spacing.md
+            }}
           >
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-white dark:bg-gray-800 shadow-md rounded-b-xl mx-4 mt-2 border border-gray-100 dark:border-gray-700">
-              {navigation.map((item, i) => {
-                const Icon = item.icon;
-                const isActive = location.pathname === item.href;
-                return (
-                  <motion.div
-                    key={item.name}
-                    custom={i}
-                    variants={menuItemVariants}
-                    whileHover={{ x: 5 }}
-                    whileTap={{ scale: 0.98 }}
+            {navigation.map((item, i) => {
+              const Icon = item.icon;
+              return (
+                <motion.div
+                  key={item.name}
+                  custom={i}
+                  variants={menuItemVariants}
+                  whileHover={{ x: 5 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <motion.button
+                    onClick={() => {
+                      scrollToSection(item.id);
+                      setMobileMenuOpen(false);
+                    }}
+                    className="w-full transition-all rounded-none flex items-center gap-3 cursor-pointer text-left"
+                    style={{
+                      padding: `${config.spacing.sm} ${config.spacing.md}`,
+                      fontSize: config.fontSize.sm,
+                      fontFamily: config.fontFamily,
+                      fontWeight: mode === 'professional' ? '500' : '700',
+                      color: config.text,
+                      backgroundColor: 'transparent',
+                      letterSpacing: mode === 'creative' ? '0.05em' : '0em',
+                      transitionDuration: config.transitionDuration,
+                      background: 'none',
+                      border: 'none',
+                      cursor: 'pointer'
+                    }}
+                    whileHover={{ color: config.primary, x: 5 }}
                   >
-                    <Link
-                      to={item.href}
-                      className={`${
-                        isActive
-                          ? 'text-primary bg-primary/10'
-                          : 'text-gray-700 dark:text-gray-300 hover:text-primary'
-                      } block px-4 py-2.5 rounded-lg text-base font-medium hover:bg-primary/5 transition-all duration-200 flex items-center gap-2`}
-                    >
-                      <Icon className="h-5 w-5" />
-                      {item.name}
-                    </Link>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+                    <Icon className="h-5 w-5 flex-shrink-0" />
+                    {item.name}
+                  </motion.button>
+                </motion.div>
+              );
+            })}
+          </div>
+        </motion.div>
+      )}
     </header>
   );
 };

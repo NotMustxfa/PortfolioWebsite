@@ -1,93 +1,232 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence, motion } from 'framer-motion';
 import Navbar from './components/Navbar';
-import Home from './pages/Home.jsx';
-import About from './pages/About.jsx';
-import Education from './pages/Education.jsx';
-import Skills from './pages/Skills.jsx';
-import Projects from './pages/Projects.jsx';
-import ProjectDetails from './pages/ProjectDetails.jsx';
-import Experience from './pages/Experience.jsx';
-import Certifications from './pages/Certifications.jsx';
-import Contact from './pages/Contact.jsx';
+import CursorTrail from './components/CursorTrail';
+import { ScrollProgress } from './components/ScrollProgress';
+import { ScrollToTop } from './components/ScrollToTop';
+import HomeUnified from './pages/HomeUnified.jsx';
+import { ThemeProvider, useTheme } from './context/ThemeContext';
+import InteractiveBackground from './components/InteractiveBackground';
+import './styles/effects.css';
+import './styles/theme-transitions.css';
+import './styles/advanced-animations.css';
+import './styles/visual-enhancements.css';
+import './styles/hero-animations.css';
+import './styles/interactive-background.css';
 
-// Background gradient patterns
-const GradientBackground = () => (
-  <div className="fixed inset-0 z-[-1] opacity-40 dark:opacity-20 overflow-hidden">
-    <div className="absolute top-0 left-0 w-[50vw] h-[50vh] bg-primary/10 rounded-full blur-[100px] transform -translate-x-1/2 -translate-y-1/2" />
-    <div className="absolute top-0 right-0 w-[50vw] h-[50vh] bg-secondary/10 rounded-full blur-[100px] transform translate-x-1/2 -translate-y-1/2" />
-    <div className="absolute bottom-0 left-0 w-[50vw] h-[50vh] bg-purple-400/10 rounded-full blur-[100px] transform -translate-x-1/2 translate-y-1/2" />
-    <div className="absolute bottom-0 right-0 w-[50vw] h-[50vh] bg-primary/5 rounded-full blur-[100px] transform translate-x-1/2 translate-y-1/2" />
-  </div>
-);
+// Wrapper to provide theme context to Background
+// Component to handle scroll reset on route change
+const ScrollToTopOnNavigate = () => {
+  const { pathname } = useLocation();
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
-// Grid pattern for visual texture
-const GridPattern = () => (
-  <div className="fixed inset-0 z-[-2] opacity-30 dark:opacity-10">
-    <div className="absolute inset-0 bg-grid-pattern" 
-         style={{backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`}} 
-    />
-  </div>
-);
+  return null;
+};
 
-const App: React.FC = () => {
+const AppContent = () => {
+  const { mode, config } = useTheme();
+
+  // Update body background when theme changes
+  useEffect(() => {
+    document.body.style.backgroundColor = config.bg;
+  }, [mode, config.bg]);
+
   return (
     <Router>
-      <div className="min-h-screen bg-dark text-gray-100 relative">
-        <GradientBackground />
-        <GridPattern />
-        
+      <div 
+        className="min-h-screen relative transition-all w-full overflow-visible"
+        data-mode={mode}
+        data-theme={mode}
+        style={{
+          color: config.text,
+          fontFamily: config.fontFamily,
+          transitionDuration: config.transitionDuration,
+          backgroundColor: 'transparent',
+        }}
+      >
+        <InteractiveBackground />
+        {mode === 'creative' && <CursorTrail />}
+        <ScrollProgress color={config.primary} />
+
         <Navbar />
-        <main className="pt-16 min-h-screen">
+        <main 
+          className="pt-16 min-h-screen relative w-full overflow-visible"
+          style={{
+            letterSpacing: mode === 'creative' ? '0.05em' : '0em'
+          }}
+        >
+          <ScrollToTopOnNavigate />
           <AnimatePresence mode="wait">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/education" element={<Education />} />
-              <Route path="/skills" element={<Skills />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/projects/:id" element={<ProjectDetails />} />
-              <Route path="/experience" element={<Experience />} />
-              <Route path="/certifications" element={<Certifications />} />
-              <Route path="/contact" element={<Contact />} />
-            </Routes>
+            <motion.div
+              key="page-content"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{
+                duration: 0.5,
+                ease: [0.25, 0.46, 0.45, 0.94],
+              }}
+              className="w-full overflow-visible"
+            >
+              <Routes>
+                <Route path="/" element={<HomeUnified />} />
+              </Routes>
+            </motion.div>
           </AnimatePresence>
         </main>
-        
-        <footer className="relative py-12 overflow-hidden border-t border-gray-200 dark:border-gray-800 backdrop-blur-sm bg-white/80 dark:bg-dark/80">
-          <div className="absolute -top-10 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[100px]" />
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-              <div className="text-2xl font-bold text-gray-800 dark:text-white">
-                MP<span className="text-primary">.</span>
+
+        {/* Global Floating Elements */}
+        <ScrollToTop scrollThreshold={300} showLabel={true} />
+
+        {/* Theme-aware Footer */}
+        <footer 
+          className="relative py-16 overflow-hidden transition-all"
+          style={{
+            backgroundColor: config.bgSecondary,
+            borderColor: config.primary,
+            transitionDuration: config.transitionDuration,
+            fontFamily: config.fontFamily
+          }}
+        >
+          <div className="container relative z-10">
+            <div 
+              className="grid gap-12 mb-8"
+              style={{
+                gridTemplateColumns: mode === 'professional' ? 'repeat(3, 1fr)' : 'repeat(1, 1fr)',
+                rowGap: config.spacing.lg
+              }}
+            >
+              {/* Brand */}
+              <div>
+                <div 
+                  className="font-bold mb-2 transition-all"
+                  style={{
+                    fontSize: config.fontSize['3xl'],
+                    color: config.primary,
+                    fontFamily: config.headingFamily,
+                    fontWeight: mode === 'professional' ? '600' : '700'
+                  }}
+                >
+                  M<span style={{ opacity: 0.5 }}>.</span>
+                </div>
+                <p 
+                  style={{
+                    color: config.textSecondary,
+                    fontSize: config.fontSize.sm,
+                    fontWeight: mode === 'professional' ? '400' : '500',
+                    letterSpacing: mode === 'creative' ? '0.05em' : '0em'
+                  }}
+                >
+                  Product Manager • Systems Thinker
+                </p>
               </div>
-              
-              <div className="flex gap-6">
-                {[
-                  { name: 'GitHub', url: 'https://github.com/NotMustxfa' },
-                  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/mustafa-pitolwala-6872472b2' }
-                ].map((item) => (
-                  <a 
-                    key={item.name} 
-                    href={item.url}
-                    target="_blank"
-                    rel="noopener noreferrer" 
-                    className="text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors"
-                  >
-                    {item.name}
-                  </a>
-                ))}
+
+              {/* Links */}
+              <div>
+                <h4 
+                  className="font-bold mb-4 transition-all"
+                  style={{
+                    color: config.primary,
+                    fontSize: config.fontSize.lg,
+                    fontFamily: config.headingFamily,
+                    fontWeight: mode === 'professional' ? '600' : '700'
+                  }}
+                >
+                  Navigation
+                </h4>
+                <div 
+                  className="space-y-2 transition-all"
+                  style={{
+                    color: config.text,
+                    fontSize: config.fontSize.sm
+                  }}
+                >
+                  {['Home', 'Projects', 'About', 'Contact'].map((item) => (
+                    <p 
+                      key={item} 
+                      className="hover:opacity-70 transition-opacity cursor-pointer"
+                      style={{
+                        fontWeight: mode === 'professional' ? '400' : '500'
+                      }}
+                    >
+                      {item}
+                    </p>
+                  ))}
+                </div>
               </div>
-              
-              <div className="text-gray-600 dark:text-gray-400 text-center md:text-right">
-                <p>© {new Date().getFullYear()} Mustafa Pitolwala. All rights reserved.</p>
-                <p className="text-sm mt-1">Designed & Built with passion</p>
+
+              {/* Social */}
+              <div>
+                <h4 
+                  className="font-bold mb-4 transition-all"
+                  style={{
+                    color: config.primary,
+                    fontSize: config.fontSize.lg,
+                    fontFamily: config.headingFamily,
+                    fontWeight: mode === 'professional' ? '600' : '700'
+                  }}
+                >
+                  Connect
+                </h4>
+                <div 
+                  className="space-y-2 transition-all"
+                  style={{
+                    color: config.text,
+                    fontSize: config.fontSize.sm
+                  }}
+                >
+                  {[
+                    { name: 'GitHub', url: 'https://github.com/NotMustxfa' },
+                    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/mustafa-pitolwala-6872472b2' }
+                  ].map((item) => (
+                    <a
+                      key={item.name}
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:opacity-70 transition-opacity block"
+                      style={{
+                        color: config.text,
+                        fontWeight: mode === 'professional' ? '400' : '500'
+                      }}
+                    >
+                      {item.name} ↗
+                    </a>
+                  ))}
+                </div>
               </div>
+            </div>
+
+            {/* Divider */}
+            <div 
+              className="pt-8 flex flex-col md:flex-row justify-between items-center transition-all"
+              style={{
+                borderTopColor: config.accent,
+                borderTopWidth: config.borderWidth,
+                color: config.textSecondary,
+                fontSize: config.fontSize.sm,
+                gap: config.spacing.md
+              }}
+            >
+              <p>© {new Date().getFullYear()} Mustafa Pitolwala. All rights reserved.</p>
+              <p>Crafted with intention & powered by React</p>
             </div>
           </div>
         </footer>
       </div>
     </Router>
+  );
+};
+
+const App: React.FC = () => {
+  return (
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
   );
 };
 

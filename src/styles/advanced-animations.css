@@ -1,0 +1,522 @@
+/* ================================================
+   ULTRA-ADVANCED ANIMATION EFFECTS
+   Production-Grade Visual Effects Library
+   ================================================ */
+
+/* ==================== MORPHING SHAPES ====================*/
+
+@keyframes morph-circle-square {
+  0% { border-radius: 50%; transform: scale(1) rotate(0deg); }
+  50% { border-radius: 10%; transform: scale(1.05) rotate(180deg); }
+  100% { border-radius: 50%; transform: scale(1) rotate(360deg); }
+}
+
+@keyframes morph-blob {
+  0%, 100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+}
+
+@keyframes morph-waves {
+  0%, 100% {
+    d: path('M0,100 Q25,50 50,100 T100,100 V200 H0 Z');
+  }
+  50% {
+    d: path('M0,100 Q25,25 50,100 T100,100 V200 H0 Z');
+  }
+}
+
+/* ==================== ADVANCED GLITCH EFFECTS ====================*/
+
+@keyframes glitch-text {
+  0% {
+    text-shadow: 2px 0 #00FF41, -2px 0 #FF00FF;
+    clip-path: inset(0 0 100% 0);
+  }
+  20% {
+    clip-path: inset(10% 0 60% 0);
+  }
+  40% {
+    text-shadow: 2px 0 #00FF41, -2px 0 #FF00FF;
+    clip-path: inset(50% 0 15% 0);
+  }
+  60% {
+    text-shadow: -2px 0 #00FF41, 2px 0 #FF00FF;
+    clip-path: inset(20% 0 70% 0);
+  }
+  80% {
+    text-shadow: -2px 0 #00FF41, 2px 0 #FF00FF;
+    clip-path: inset(0 0 100% 0);
+  }
+  100% {
+    text-shadow: 2px 0 #00FF41, -2px 0 #FF00FF;
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes glitch-shadow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(0, 255, 65, 0);
+  }
+  50% {
+    box-shadow: 3px 3px 0 0 rgba(0, 255, 65, 0.5), -3px -3px 0 0 rgba(255, 0, 255, 0.5);
+  }
+}
+
+/* ==================== HOLOGRAPHIC EFFECTS ====================*/
+
+@keyframes holographic-shimmer {
+  0% {
+    background-position: 0% 50%;
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    background-position: 100% 50%;
+    filter: hue-rotate(360deg);
+  }
+  100% {
+    background-position: 0% 50%;
+    filter: hue-rotate(0deg);
+  }
+}
+
+@keyframes holographic-flicker {
+  0%, 100% {
+    opacity: 1;
+    filter: brightness(1);
+  }
+  10% {
+    opacity: 0.9;
+    filter: brightness(1.1);
+  }
+  20% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0.95;
+    filter: brightness(0.95);
+  }
+}
+
+@keyframes rainbow-wave {
+  0% {
+    background-position: 0% 0%;
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    background-position: 100% 100%;
+    filter: hue-rotate(180deg);
+  }
+  100% {
+    background-position: 0% 0%;
+    filter: hue-rotate(360deg);
+  }
+}
+
+/* ==================== LIQUID SWIRL ====================*/
+
+@keyframes liquid-swirl {
+  0%, 100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    transform: rotate(90deg) scale(1.02);
+  }
+  50% {
+    border-radius: 70% 30% 66% 33% / 33% 66% 33% 67%;
+    transform: rotate(180deg) scale(1);
+  }
+  75% {
+    border-radius: 40% 60% 30% 70% / 40% 60% 30% 70%;
+    transform: rotate(270deg) scale(1.02);
+  }
+}
+
+/* ==================== ADVANCED GRADIENT FLOWS ====================*/
+
+@keyframes gradient-rotate {
+  0% {
+    background: linear-gradient(0deg, #7C3AED, #EC4899);
+  }
+  25% {
+    background: linear-gradient(90deg, #7C3AED, #3B82F6);
+  }
+  50% {
+    background: linear-gradient(180deg, #3B82F6, #EC4899);
+  }
+  75% {
+    background: linear-gradient(270deg, #EC4899, #7C3AED);
+  }
+  100% {
+    background: linear-gradient(360deg, #7C3AED, #EC4899);
+  }
+}
+
+@keyframes gradient-3d {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ==================== PIXELATED EFFECTS ====================*/
+
+@keyframes pixelate-in {
+  0% {
+    clip-path: polygon(
+      0% 0%, 5% 0%, 10% 0%, 15% 0%, 20% 0%, 25% 0%, 30% 0%, 35% 0%, 40% 0%, 45% 0%, 50% 0%, 55% 0%, 60% 0%, 65% 0%, 70% 0%, 75% 0%, 80% 0%, 85% 0%, 90% 0%, 95% 0%, 100% 0%, 100% 5%, 100% 10%, 100% 15%, 100% 20%, 100% 25%, 100% 30%, 100% 35%, 100% 40%, 100% 45%, 100% 50%, 100% 55%, 100% 60%, 100% 65%, 100% 70%, 100% 75%, 100% 80%, 100% 85%, 100% 90%, 100% 95%, 100% 100%, 95% 100%, 90% 100%, 85% 100%, 80% 100%, 75% 100%, 70% 100%, 65% 100%, 60% 100%, 55% 100%, 50% 100%, 45% 100%, 40% 100%, 35% 100%, 30% 100%, 25% 100%, 20% 100%, 15% 100%, 10% 100%, 5% 100%, 0% 100%, 0% 95%, 0% 90%, 0% 85%, 0% 80%, 0% 75%, 0% 70%, 0% 65%, 0% 60%, 0% 55%, 0% 50%, 0% 45%, 0% 40%, 0% 35%, 0% 30%, 0% 25%, 0% 20%, 0% 15%, 0% 10%, 0% 5%
+    );
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+
+@keyframes blur-in {
+  0% {
+    filter: blur(20px);
+    opacity: 0;
+  }
+  100% {
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+/* ==================== PARTICLE BURST ====================*/
+
+@keyframes particle-burst {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--tx), var(--ty)) scale(0);
+  }
+}
+
+@keyframes particle-spiral {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--tx), var(--ty)) rotate(360deg) scale(0);
+    opacity: 0;
+  }
+}
+
+/* ==================== ENHANCED TEXT EFFECTS ====================*/
+
+@keyframes text-reveal-mask {
+  0% {
+    clip-path: inset(0 100% 0 0);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes text-shadow-flicker {
+  0%, 100% {
+    text-shadow: none;
+  }
+  5%, 15%, 25%, 35%, 45%, 55%, 65%, 75%, 85%, 95% {
+    text-shadow: 2px 2px 0px rgba(0, 255, 65, 0.5), -2px -2px 0px rgba(255, 0, 255, 0.5);
+  }
+}
+
+@keyframes text-3d-depth {
+  0% {
+    transform: translateZ(0) perspective(500px);
+    text-shadow: 0 0 0 rgba(124, 58, 237, 0.5);
+  }
+  50% {
+    transform: translateZ(30px) perspective(500px);
+    text-shadow: 0 10px 20px rgba(124, 58, 237, 0.8);
+  }
+  100% {
+    transform: translateZ(0) perspective(500px);
+    text-shadow: 0 0 0 rgba(124, 58, 237, 0.5);
+  }
+}
+
+/* ==================== LAYERED PARALLAX ====================*/
+
+@keyframes parallax-slow {
+  0% {
+    transform: translateY(0) translateZ(0);
+  }
+  100% {
+    transform: translateY(-20px) translateZ(0);
+  }
+}
+
+@keyframes parallax-medium {
+  0% {
+    transform: translateY(0) translateZ(0);
+  }
+  100% {
+    transform: translateY(-40px) translateZ(0);
+  }
+}
+
+@keyframes parallax-fast {
+  0% {
+    transform: translateY(0) translateZ(0);
+  }
+  100% {
+    transform: translateY(-60px) translateZ(0);
+  }
+}
+
+/* ==================== AURORA BOREALIS ====================*/
+
+@keyframes aurora-glow {
+  0%, 100% {
+    opacity: 0;
+    transform: translateX(-100%) rotate(45deg);
+    filter: blur(40px);
+  }
+  50% {
+    opacity: 0.8;
+    filter: blur(20px);
+  }
+}
+
+@keyframes aurora-wave {
+  0% {
+    transform: translateX(0) skewY(0deg);
+  }
+  50% {
+    transform: translateX(100%) skewY(5deg);
+  }
+  100% {
+    transform: translateX(0) skewY(0deg);
+  }
+}
+
+/* ==================== NEON EFFECTS ====================*/
+
+@keyframes neon-glow {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(0, 255, 65, 0.3), 0 0 20px rgba(0, 255, 65, 0.1);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(0, 255, 65, 0.8), 0 0 40px rgba(0, 255, 65, 0.5), 0 0 60px rgba(0, 255, 65, 0.3);
+  }
+}
+
+@keyframes neon-flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    text-shadow: 0 0 10px rgba(0, 255, 65, 0.7), 0 0 20px rgba(0, 255, 65, 0.5);
+  }
+  20%, 24%, 55% {
+    text-shadow: 0 0 5px rgba(0, 255, 65, 0.3);
+  }
+}
+
+/* ==================== MAGNETIC FIELD ====================*/
+
+@keyframes magnetic-pull {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(var(--mx), var(--my));
+  }
+}
+
+@keyframes magnetic-orbit {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(360deg);
+  }
+}
+
+/* ==================== CYBER SCAN ====================*/
+
+@keyframes cyber-scan-line {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes cyber-glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(0, 255, 65, 0.2), inset 0 0 5px rgba(0, 255, 65, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.8), inset 0 0 20px rgba(0, 255, 65, 0.3);
+  }
+}
+
+/* ==================== FABRIC RIPPLE ====================*/
+
+@keyframes fabric-ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+@keyframes wave-distortion {
+  0% {
+    filter: none;
+  }
+  50% {
+    filter: url(#wave);
+  }
+  100% {
+    filter: none;
+  }
+}
+
+/* ==================== UTILITY ANIMATION CLASSES ====================*/
+
+.animate-morph-blob {
+  animation: morph-blob 6s ease-in-out infinite;
+}
+
+.animate-glitch-text {
+  animation: glitch-text 0.4s ease-in-out infinite;
+}
+
+.animate-holographic {
+  animation: holographic-shimmer 4s ease-in-out infinite;
+}
+
+.animate-liquid-swirl {
+  animation: liquid-swirl 8s ease-in-out infinite;
+}
+
+.animate-gradient-rotate {
+  background-size: 400% 400%;
+  animation: gradient-rotate 8s ease infinite;
+}
+
+.animate-neon-glow {
+  animation: neon-glow 2s ease-in-out infinite;
+}
+
+.animate-neon-flicker {
+  animation: neon-flicker 3s linear infinite;
+}
+
+.animate-cyber-scan {
+  animation: cyber-scan-line 3s linear infinite;
+}
+
+.animate-cyber-glow {
+  animation: cyber-glow-pulse 2s ease-in-out infinite;
+}
+
+.animate-blur-in {
+  animation: blur-in 0.8s ease-out;
+}
+
+.animate-pixelate-in {
+  animation: pixelate-in 1s ease-out;
+}
+
+.animate-aurora {
+  animation: aurora-glow 4s ease-in-out infinite;
+}
+
+.animate-fabric-ripple {
+  animation: fabric-ripple 0.6s ease-out;
+}
+
+/* ==================== ADVANCED HOVER EFFECTS ====================*/
+
+.hover-lift-heavy {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hover-lift-heavy:hover {
+  transform: translateY(-20px) scale(1.05);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+  filter: brightness(1.1);
+}
+
+.hover-glow-intense {
+  transition: all 0.3s ease;
+}
+
+.hover-glow-intense:hover {
+  box-shadow: 0 0 30px rgba(124, 58, 237, 1), 0 0 60px rgba(124, 58, 237, 0.5);
+  filter: brightness(1.2);
+}
+
+.hover-spin-slow {
+  transition: transform 0.5s ease;
+}
+
+.hover-spin-slow:hover {
+  transform: rotate(10deg);
+}
+
+.hover-scale-large {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hover-scale-large:hover {
+  transform: scale(1.15);
+}
+
+/* ==================== SCROLL ANIMATION TRIGGERS ====================*/
+
+.scroll-fade-in {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.scroll-scale-in {
+  opacity: 0;
+  animation: scaleInCenter 0.8s ease-out forwards;
+}
+
+.scroll-slide-in {
+  opacity: 0;
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+/* ==================== ACCESSIBILITY OVERRIDES ====================*/
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

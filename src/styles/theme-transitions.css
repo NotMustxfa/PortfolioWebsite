@@ -1,0 +1,304 @@
+/* Dramatic Theme Transition Effects */
+
+/* Smooth global transition on mode switch */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Creative Mode - High Energy Styling */
+[data-mode="creative"] {
+  --primary: #00FF41;
+  --primary-rgb: 0, 255, 65;
+  --secondary: #FFD700;
+  --secondary-rgb: 255, 215, 0;
+  --bg: #000000;
+  --bg-secondary: #0a0a0a;
+  --text: #FFFAF0;
+  --text-secondary: #B0B0B0;
+  --accent: rgba(0, 255, 65, 0.15);
+  --accent-strong: rgba(0, 255, 65, 0.35);
+
+  /* Font styling - Bold monospace */
+  font-family: 'IBM Plex Mono', monospace;
+  letter-spacing: 0.05em;
+
+  /* Aggressive borders */
+  --border-width: 2px;
+  --border-radius: 0;
+
+  /* Fast animations */
+  --animation-duration: 200ms;
+  --transition-duration: 200ms;
+}
+
+/* Professional Mode - Refined Styling */
+[data-mode="professional"] {
+  --primary: #3B82F6;
+  --primary-rgb: 59, 130, 246;
+  --secondary: #8B5CF6;
+  --secondary-rgb: 139, 92, 246;
+  --bg: #0F172A;
+  --bg-secondary: #1E293B;
+  --text: #F1F5F9;
+  --text-secondary: #CBD5E1;
+  --accent: rgba(59, 130, 246, 0.08);
+  --accent-strong: rgba(59, 130, 246, 0.15);
+
+  /* Font styling - Elegant sans-serif */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+  letter-spacing: 0;
+
+  /* Subtle borders */
+  --border-width: 1px;
+  --border-radius: 8px;
+
+  /* Smooth animations */
+  --animation-duration: 350ms;
+  --transition-duration: 350ms;
+}
+
+/* Page transitions with backdrop blur */
+.page-transition-enter {
+  animation: pageEnter var(--animation-duration) ease-out;
+}
+
+.page-transition-exit {
+  animation: pageExit var(--animation-duration) ease-in;
+}
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pageExit {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+/* Glitch effect for creative mode (on mode switch) */
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+    opacity: 1;
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+    opacity: 1;
+  }
+}
+
+/* Smooth fade for professional mode */
+@keyframes smoothFade {
+  0% {
+    opacity: 0;
+    filter: blur(10px);
+  }
+  50% {
+    filter: blur(5px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+/* Apply glitch on mode switch for creative */
+[data-mode="creative"] body {
+  animation: glitch 0.5s ease-out;
+}
+
+/* Apply smooth fade on mode switch for professional */
+[data-mode="professional"] body {
+  animation: smoothFade 0.6s ease-out;
+}
+
+/* Neon glow effect for creative elements */
+[data-mode="creative"] .glow-element {
+  text-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary-rgb);
+  filter: drop-shadow(0 0 10px rgba(var(--primary-rgb), 0.3));
+  animation: neonPulse 2s ease-in-out infinite;
+}
+
+@keyframes neonPulse {
+  0%, 100% {
+    text-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary-rgb);
+    filter: drop-shadow(0 0 10px rgba(var(--primary-rgb), 0.3));
+  }
+  50% {
+    text-shadow: 0 0 20px var(--primary), 0 0 40px var(--primary-rgb);
+    filter: drop-shadow(0 0 20px rgba(var(--primary-rgb), 0.5));
+  }
+}
+
+/* Subtle glow for professional elements */
+[data-mode="professional"] .glow-element {
+  text-shadow: 0 0 5px rgba(var(--primary-rgb), 0.2);
+  filter: drop-shadow(0 0 5px rgba(var(--primary-rgb), 0.15));
+}
+
+/* Button state transitions */
+button,
+[role="button"] {
+  transition: all var(--transition-duration) ease-in-out;
+}
+
+[data-mode="creative"] button:hover {
+  box-shadow: 0 0 20px rgba(var(--primary-rgb), 0.3), inset 0 0 10px rgba(var(--primary-rgb), 0.1);
+}
+
+[data-mode="professional"] button:hover {
+  box-shadow: 0 2px 8px rgba(var(--primary-rgb), 0.15);
+}
+
+/* Text rendering differences */
+[data-mode="creative"] {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeSpeed;
+}
+
+[data-mode="professional"] {
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
+  text-rendering: optimizeLegibility;
+}
+
+/* Backdrop effects */
+[data-mode="creative"] .backdrop {
+  backdrop-filter: blur(20px);
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+[data-mode="professional"] .backdrop {
+  backdrop-filter: blur(12px);
+  background-color: rgba(15, 23, 42, 0.2);
+}
+
+/* Grid background pattern differences */
+[data-mode="creative"] .grid-pattern {
+  opacity: 0.02;
+  animation: gridPulse 4s ease-in-out infinite;
+}
+
+[data-mode="professional"] .grid-pattern {
+  opacity: 0.03;
+}
+
+@keyframes gridPulse {
+  0%, 100% {
+    opacity: 0.02;
+  }
+  50% {
+    opacity: 0.04;
+  }
+}
+
+/* Cursor effects */
+[data-mode="creative"] {
+  cursor: crosshair;
+}
+
+[data-mode="professional"] {
+  cursor: default;
+}
+
+/* Selection color difference */
+[data-mode="creative"]::selection {
+  background-color: rgba(0, 255, 65, 0.3);
+  color: #FFFAF0;
+}
+
+[data-mode="professional"]::selection {
+  background-color: rgba(59, 130, 246, 0.3);
+  color: #F1F5F9;
+}
+
+/* Scrollbar styling per mode */
+[data-mode="creative"]::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00FF41, #FFD700);
+  box-shadow: inset 0 0 6px rgba(0, 255, 65, 0.3);
+}
+
+[data-mode="professional"]::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #3B82F6, #8B5CF6);
+  border-radius: 4px;
+}
+
+/* Spacing differences */
+[data-mode="creative"] .spaced {
+  margin: 2.5rem;
+  padding: 1.5rem;
+}
+
+[data-mode="professional"] .spaced {
+  margin: 2rem;
+  padding: 1rem;
+}
+
+/* Line height differences */
+[data-mode="creative"] p {
+  line-height: 1.7;
+}
+
+[data-mode="professional"] p {
+  line-height: 1.6;
+}
+
+/* Font weight differences for visual hierarchy */
+[data-mode="creative"] strong,
+[data-mode="creative"] h1,
+[data-mode="creative"] h2,
+[data-mode="creative"] h3 {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+[data-mode="professional"] strong,
+[data-mode="professional"] h1,
+[data-mode="professional"] h2,
+[data-mode="professional"] h3 {
+  font-weight: 600;
+  text-transform: none;
+}
+
+/* Scale animations for mode switch */
+@keyframes scaleInMode {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Apply scale animation to main content on mode switch */
+main {
+  animation: scaleInMode 0.3s ease-out;
+}
