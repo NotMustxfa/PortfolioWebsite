@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/PortfolioWebsite/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting...</title>
+    <script>
+      // GitHub Pages 404 redirect for SPA routing
+      const path = window.location.pathname.replace(/\/$/, '');
+      if (!path.match(/\.[a-zA-Z0-9]+$/)) {
+        // No file extension, likely a route - redirect to home with hash
+        const redirect = '/PortfolioWebsite/?p=' + path.substring('/PortfolioWebsite'.length);
+        window.location.replace(redirect);
+      }
+    </script>
+  </head>
+  <body>
+    <p>Redirecting...</p>
+  </body>
+</html>
