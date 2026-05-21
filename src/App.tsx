@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import Navbar from './components/Navbar';
 import CursorTrail from './components/CursorTrail';
@@ -74,6 +74,7 @@ const AppContent = () => {
             >
               <Routes>
                 <Route path="/" element={<HomeUnified />} />
+                <Route path="*" element={<Navigate to="/" replace />} />
               </Routes>
             </motion.div>
           </AnimatePresence>
