@@ -1208,14 +1208,6 @@ const ExperienceSection = ({ config, experienceRef }) => {
 
   return (
     <motion.section ref={experienceRef} className="relative py-24 overflow-visible w-full" style={{ backgroundColor: 'transparent' }}>
-      <FloatingBlob className="absolute top-1/4 left-0" color={config.secondary} size={350} />
-      <FloatingBlob className="absolute bottom-0 right-1/3" color={config.primary} size={300} />
-      
-      <motion.div
-        className="absolute bottom-0 right-0 w-96 h-96 rounded-full blur-[150px] pointer-events-none animate-morph-blob"
-        style={{ backgroundColor: `${config.secondary}02` }}
-      />
-
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ margin: '-50px' }} className="mb-20">
           <HolographicText
@@ -1230,7 +1222,7 @@ const ExperienceSection = ({ config, experienceRef }) => {
           </p>
         </motion.div>
 
-        <ExperienceTimeline items={experience} />
+        <ExperienceTimeline items={experience} config={config} />
       </div>
     </motion.section>
   );

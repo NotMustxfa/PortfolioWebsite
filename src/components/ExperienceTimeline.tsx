@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useTheme } from '../context/ThemeContext';
 
@@ -25,6 +25,16 @@ export const ExperienceTimelineItem: React.FC<ExperienceTimelineItemProps> = ({
 }) => {
   const { config } = useTheme();
   const [isHovered, setIsHovered] = useState(false);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    setMousePos({ x: (x / rect.width) * 100, y: (y / rect.height) * 100 });
+  };
 
   return (
     <motion.div
@@ -37,7 +47,7 @@ export const ExperienceTimelineItem: React.FC<ExperienceTimelineItemProps> = ({
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Content */}
-      <div className="flex-1">
+      <div className="flex-1 group" ref={cardRef} onMouseMove={handleMouseMove}>
         <motion.div
           style={{
             backgroundColor: config.bgSecondary,
@@ -55,77 +65,107 @@ export const ExperienceTimelineItem: React.FC<ExperienceTimelineItemProps> = ({
           transition={{ duration: 0.3 }}
           className="transition-all relative overflow-hidden"
         >
-          {/* Hover glow effect */}
+          {/* Animated shimmer effect on hover */}
           {isHovered && (
             <motion.div
               className="absolute inset-0 pointer-events-none"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              initial={{ opacity: 0, x: '-100%' }}
+              animate={{ opacity: [0, 0.3, 0], x: '100%' }}
+              transition={{ duration: 1.5, repeat: Infinity }}
               style={{
-                background: `radial-gradient(circle at 50% 50%, ${config.primary}15, transparent 70%)`,
+                background: `linear-gradient(90deg, transparent, ${config.primary}20, transparent)`,
               }}
             />
           )}
 
-          <motion.span
-            animate={{ 
-              color: isHovered ? config.primary : config.textSecondary,
-              letterSpacing: isHovered ? '0.08em' : '0em'
+          {/* Glow background that follows cursor */}
+          <motion.div
+            className="absolute inset-0 rounded-lg blur-2xl opacity-0 group-hover:opacity-50 transition-opacity duration-300 pointer-events-none"
+            style={{
+              backgroundColor: config.primary,
+              left: isHovered ? `${mousePos.x}%` : '50%',
+              top: isHovered ? `${mousePos.y}%` : '50%',
+              width: '200px',
+              height: '200px',
+              transform: 'translate(-50%, -50%)',
             }}
-            className="text-xs font-semibold uppercase tracking-wider"
-          >
-            {date}
-          </motion.span>
+          />
 
-          <h3 style={{ color: config.text }} className="text-lg font-bold mt-3 mb-1 leading-tight">
-            {title}
-          </h3>
-
-          <p style={{ color: config.primary }} className="text-sm font-semibold mb-4 tracking-wide">
-            {company}
-          </p>
-
-          <p style={{ color: config.textSecondary }} className="text-sm leading-relaxed mb-4">
-            {description}
-          </p>
-
-          {highlights && highlights.length > 0 && (
-            <div className="mb-4 space-y-2">
-              {highlights.map((highlight, idx) => (
-                <motion.li
-                  key={idx}
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: idx * 0.08 }}
-                  style={{ color: config.textSecondary }}
-                  className="text-xs list-disc ml-4 font-medium"
-                >
-                  {highlight}
-                </motion.li>
-              ))}
-            </div>
+          {/* Border glow effect */}
+          {isHovered && (
+            <motion.div
+              className="absolute inset-0 rounded-lg pointer-events-none"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              style={{
+                boxShadow: `0 0 40px ${config.primary}50, inset 0 0 20px ${config.primary}20`,
+              }}
+            />
           )}
 
-          {technologies && technologies.length > 0 && (
-            <div className="flex flex-wrap gap-2 pt-2 border-t border-solid" style={{ borderColor: `${config.primary}20` }}>
-              {technologies.map((tech, idx) => (
-                <motion.span
-                  key={idx}
-                  whileHover={{ scale: 1.15, translateY: -2 }}
-                  style={{
-                    backgroundColor: `${config.primary}20`,
-                    color: config.primary,
-                    borderRadius: config.borderRadius,
-                    fontSize: config.fontSize.xs,
-                    padding: '0.25rem 0.75rem',
-                    fontWeight: '600',
-                  }}
-                >
-                  {tech}
-                </motion.span>
-              ))}
-            </div>
-          )}
+          {/* Content */}
+          <div className="relative z-10">
+            <motion.span
+              animate={{ 
+                color: isHovered ? config.primary : config.textSecondary,
+                letterSpacing: isHovered ? '0.08em' : '0em'
+              }}
+              className="text-xs font-semibold uppercase tracking-wider"
+            >
+              {date}
+            </motion.span>
+
+            <h3 style={{ color: config.text }} className="text-lg font-bold mt-3 mb-1 leading-tight">
+              {title}
+            </h3>
+
+            <p style={{ color: config.primary }} className="text-sm font-semibold mb-4 tracking-wide">
+              {company}
+            </p>
+
+            <p style={{ color: config.textSecondary }} className="text-sm leading-relaxed mb-4">
+              {description}
+            </p>
+
+            {highlights && highlights.length > 0 && (
+              <div className="mb-4 space-y-2">
+                {highlights.map((highlight, idx) => (
+                  <motion.li
+                    key={idx}
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: idx * 0.08 }}
+                    style={{ color: config.textSecondary }}
+                    className="text-xs list-disc ml-4 font-medium"
+                  >
+                    {highlight}
+                  </motion.li>
+                ))}
+              </div>
+            )}
+
+            {technologies && technologies.length > 0 && (
+              <div className="flex flex-wrap gap-2 pt-2 border-t border-solid" style={{ borderColor: `${config.primary}20` }}>
+                {technologies.map((tech, idx) => (
+                  <motion.span
+                    key={idx}
+                    whileHover={{ scale: 1.15, translateY: -2 }}
+                    style={{
+                      backgroundColor: `${config.primary}20`,
+                      color: config.primary,
+                      borderRadius: config.borderRadius,
+                      fontSize: config.fontSize.xs,
+                      padding: '0.25rem 0.75rem',
+                      fontWeight: '600',
+                    }}
+                  >
+                    {tech}
+                  </motion.span>
+                ))}
+              </div>
+            )}
+          </div>
         </motion.div>
       </div>
 
