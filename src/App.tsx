@@ -36,7 +36,7 @@ const AppContent = () => {
   }, [mode, config.bg]);
 
   return (
-    <Router>
+    <Router basename="/PortfolioWebsite/">
       <div 
         className="min-h-screen relative transition-all w-full overflow-visible"
         data-mode={mode}
